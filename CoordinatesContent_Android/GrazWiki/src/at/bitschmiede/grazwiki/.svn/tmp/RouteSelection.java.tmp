@@ -1,0 +1,81 @@
+package at.bitschmiede.grazwiki;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import at.bitschmiede.grazwiki.JSON.Building;
+import at.bitschmiede.grazwiki.JSON.BuildingDescription;
+import at.bitschmiede.grazwiki.JSON.DownloadAllRoutes;
+import at.bitschmiede.grazwiki.JSON.DownloadEvents;
+import at.bitschmiede.grazwiki.JSON.DownloadRouteInformation;
+import at.bitschmiede.grazwiki.JSON.Route;
+import at.bitschmiede.grazwiki.JSON.RouteInformation;
+
+public class RouteSelection extends Activity implements DownloadEvents{
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_route_selection);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.route_selection, menu);
+				
+		//----Download aller Routen
+		DownloadAllRoutes downloadAllRoutes = new DownloadAllRoutes();
+		downloadAllRoutes.addListener(this);
+		downloadAllRoutes.execute();
+		
+		//----Download der RoutenInformationen
+		int routeID = 1; //Downloaden der Route mit der ID 1
+		DownloadRouteInformation downloadRouteInfo = new DownloadRouteInformation();
+		downloadRouteInfo.addListener(this);
+		downloadRouteInfo.execute(routeID);
+		return true;
+	}
+
+<<<<<<< .mine
+
+=======
+	
+	
+	
+	
+	
+	@Override
+	public void downloadBuildingsOfRegionCompleted(Building[] buildingsInRegion) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void downloadAllBuildingsCompleted(Building[] buildingsInRegion) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void downloadAllRoutesCompleted(Route[] routes) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void downloadRouteInformationCompleted(int route_id,
+			RouteInformation[] routeInformation) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void downloadBuildingInformationCompleted(int buildingID,
+			BuildingDescription[] buildingDescriptions) {
+		// TODO Auto-generated method stub
+		
+	}
+
+>>>>>>> .r49
+}

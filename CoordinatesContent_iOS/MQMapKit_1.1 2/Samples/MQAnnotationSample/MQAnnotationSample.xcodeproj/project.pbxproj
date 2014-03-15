@@ -1,0 +1,368 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		09518C4313BCC1AF000837A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09518C4213BCC1AF000837A7 /* UIKit.framework */; };
+		09518C4513BCC1AF000837A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09518C4413BCC1AF000837A7 /* Foundation.framework */; };
+		09518C4713BCC1AF000837A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09518C4613BCC1AF000837A7 /* CoreGraphics.framework */; };
+		09518C4D13BCC1AF000837A7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09518C4B13BCC1AF000837A7 /* InfoPlist.strings */; };
+		09518C4F13BCC1AF000837A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 09518C4E13BCC1AF000837A7 /* main.m */; };
+		09518C5313BCC1AF000837A7 /* MQAnnotationSampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 09518C5213BCC1AF000837A7 /* MQAnnotationSampleAppDelegate.m */; };
+		09518C5513BCC1AF000837A7 /* MQMapViewController.h in Resources */ = {isa = PBXBuildFile; fileRef = 09518C5413BCC1AF000837A7 /* MQMapViewController.h */; };
+		09518C5713BCC1AF000837A7 /* MQMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09518C5613BCC1AF000837A7 /* MQMapViewController.m */; };
+		09518C5A13BCC1AF000837A7 /* MQMapViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09518C5813BCC1AF000837A7 /* MQMapViewController_iPhone.xib */; };
+		09518C5D13BCC1B0000837A7 /* MQMapViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09518C5B13BCC1B0000837A7 /* MQMapViewController_iPad.xib */; };
+		09518C6413BCC222000837A7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09518C6313BCC222000837A7 /* QuartzCore.framework */; };
+		09518C6613BCC22D000837A7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 09518C6513BCC22D000837A7 /* libsqlite3.dylib */; };
+		09540F8413BCC6F000ECB662 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09540F8313BCC6F000ECB662 /* CoreLocation.framework */; };
+		098964B813D5C10600D52647 /* BusinessAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 098964B713D5C10600D52647 /* BusinessAnnotation.m */; };
+		098964BB13D5C12200D52647 /* ResidentialAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 098964BA13D5C12200D52647 /* ResidentialAnnotation.m */; };
+		098964BE13D5C16700D52647 /* PlaceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 098964BD13D5C16700D52647 /* PlaceAnnotation.m */; };
+		098964C013D5C6F500D52647 /* sign.png in Resources */ = {isa = PBXBuildFile; fileRef = 098964BF13D5C6F500D52647 /* sign.png */; };
+		0994260D14310160009FEFBD /* MQMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0994260C14310160009FEFBD /* MQMapKit.framework */; };
+		09CABD8B1407D5B500E35409 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CABD8A1407D5B500E35409 /* AddressBook.framework */; };
+		E6CD36231680E13D001FF6CD /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E6CD36221680E13D001FF6CD /* libxml2.dylib */; };
+		E6CD36261680E14A001FF6CD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6CD36251680E14A001FF6CD /* SystemConfiguration.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		09518C3E13BCC1AF000837A7 /* MQAnnotationSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MQAnnotationSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		09518C4213BCC1AF000837A7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		09518C4413BCC1AF000837A7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		09518C4613BCC1AF000837A7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		09518C4A13BCC1AF000837A7 /* MQAnnotationSample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MQAnnotationSample-Info.plist"; sourceTree = "<group>"; };
+		09518C4C13BCC1AF000837A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		09518C4E13BCC1AF000837A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		09518C5013BCC1AF000837A7 /* MQAnnotationSample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MQAnnotationSample-Prefix.pch"; sourceTree = "<group>"; };
+		09518C5113BCC1AF000837A7 /* MQAnnotationSampleAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MQAnnotationSampleAppDelegate.h; sourceTree = "<group>"; };
+		09518C5213BCC1AF000837A7 /* MQAnnotationSampleAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MQAnnotationSampleAppDelegate.m; sourceTree = "<group>"; };
+		09518C5413BCC1AF000837A7 /* MQMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MQMapViewController.h; sourceTree = "<group>"; };
+		09518C5613BCC1AF000837A7 /* MQMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MQMapViewController.m; sourceTree = "<group>"; };
+		09518C5913BCC1AF000837A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MQMapViewController_iPhone.xib; sourceTree = "<group>"; };
+		09518C5C13BCC1B0000837A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MQMapViewController_iPad.xib; sourceTree = "<group>"; };
+		09518C6313BCC222000837A7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		09518C6513BCC22D000837A7 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		09540F8313BCC6F000ECB662 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		098964B613D5C10600D52647 /* BusinessAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessAnnotation.h; sourceTree = "<group>"; };
+		098964B713D5C10600D52647 /* BusinessAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessAnnotation.m; sourceTree = "<group>"; };
+		098964B913D5C12200D52647 /* ResidentialAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResidentialAnnotation.h; sourceTree = "<group>"; };
+		098964BA13D5C12200D52647 /* ResidentialAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResidentialAnnotation.m; sourceTree = "<group>"; };
+		098964BC13D5C16700D52647 /* PlaceAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceAnnotation.h; sourceTree = "<group>"; };
+		098964BD13D5C16700D52647 /* PlaceAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceAnnotation.m; sourceTree = "<group>"; };
+		098964BF13D5C6F500D52647 /* sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sign.png; sourceTree = "<group>"; };
+		0994260C14310160009FEFBD /* MQMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MQMapKit.framework; path = ../../MQMapKit.framework; sourceTree = "<group>"; };
+		09CABD8A1407D5B500E35409 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		E6CD36221680E13D001FF6CD /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		E6CD36251680E14A001FF6CD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		09518C3B13BCC1AF000837A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6CD36261680E14A001FF6CD /* SystemConfiguration.framework in Frameworks */,
+				E6CD36231680E13D001FF6CD /* libxml2.dylib in Frameworks */,
+				0994260D14310160009FEFBD /* MQMapKit.framework in Frameworks */,
+				09CABD8B1407D5B500E35409 /* AddressBook.framework in Frameworks */,
+				09540F8413BCC6F000ECB662 /* CoreLocation.framework in Frameworks */,
+				09518C6613BCC22D000837A7 /* libsqlite3.dylib in Frameworks */,
+				09518C6413BCC222000837A7 /* QuartzCore.framework in Frameworks */,
+				09518C4313BCC1AF000837A7 /* UIKit.framework in Frameworks */,
+				09518C4513BCC1AF000837A7 /* Foundation.framework in Frameworks */,
+				09518C4713BCC1AF000837A7 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		09518C3313BCC1AF000837A7 = {
+			isa = PBXGroup;
+			children = (
+				E6CD36251680E14A001FF6CD /* SystemConfiguration.framework */,
+				E6CD36221680E13D001FF6CD /* libxml2.dylib */,
+				0994260C14310160009FEFBD /* MQMapKit.framework */,
+				09CABD8A1407D5B500E35409 /* AddressBook.framework */,
+				09518C6513BCC22D000837A7 /* libsqlite3.dylib */,
+				09518C4813BCC1AF000837A7 /* Classes */,
+				09518C4113BCC1AF000837A7 /* Frameworks */,
+				09518C3F13BCC1AF000837A7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		09518C3F13BCC1AF000837A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				09518C3E13BCC1AF000837A7 /* MQAnnotationSample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		09518C4113BCC1AF000837A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				09518C6313BCC222000837A7 /* QuartzCore.framework */,
+				09540F8313BCC6F000ECB662 /* CoreLocation.framework */,
+				09518C4213BCC1AF000837A7 /* UIKit.framework */,
+				09518C4413BCC1AF000837A7 /* Foundation.framework */,
+				09518C4613BCC1AF000837A7 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		09518C4813BCC1AF000837A7 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				098964BF13D5C6F500D52647 /* sign.png */,
+				09518C5113BCC1AF000837A7 /* MQAnnotationSampleAppDelegate.h */,
+				09518C5213BCC1AF000837A7 /* MQAnnotationSampleAppDelegate.m */,
+				09518C5413BCC1AF000837A7 /* MQMapViewController.h */,
+				09518C5613BCC1AF000837A7 /* MQMapViewController.m */,
+				09518C5813BCC1AF000837A7 /* MQMapViewController_iPhone.xib */,
+				09518C5B13BCC1B0000837A7 /* MQMapViewController_iPad.xib */,
+				098964B613D5C10600D52647 /* BusinessAnnotation.h */,
+				098964B713D5C10600D52647 /* BusinessAnnotation.m */,
+				098964B913D5C12200D52647 /* ResidentialAnnotation.h */,
+				098964BA13D5C12200D52647 /* ResidentialAnnotation.m */,
+				098964BC13D5C16700D52647 /* PlaceAnnotation.h */,
+				098964BD13D5C16700D52647 /* PlaceAnnotation.m */,
+				09518C4913BCC1AF000837A7 /* Supporting Files */,
+			);
+			name = Classes;
+			path = mapsdktest;
+			sourceTree = "<group>";
+		};
+		09518C4913BCC1AF000837A7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				09518C4A13BCC1AF000837A7 /* MQAnnotationSample-Info.plist */,
+				09518C4B13BCC1AF000837A7 /* InfoPlist.strings */,
+				09518C4E13BCC1AF000837A7 /* main.m */,
+				09518C5013BCC1AF000837A7 /* MQAnnotationSample-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		09518C3D13BCC1AF000837A7 /* MQAnnotationSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09518C6013BCC1B0000837A7 /* Build configuration list for PBXNativeTarget "MQAnnotationSample" */;
+			buildPhases = (
+				09518C3A13BCC1AF000837A7 /* Sources */,
+				09518C3B13BCC1AF000837A7 /* Frameworks */,
+				09518C3C13BCC1AF000837A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MQAnnotationSample;
+			productName = mapsdktest;
+			productReference = 09518C3E13BCC1AF000837A7 /* MQAnnotationSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		09518C3513BCC1AF000837A7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 09518C3813BCC1AF000837A7 /* Build configuration list for PBXProject "MQAnnotationSample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 09518C3313BCC1AF000837A7;
+			productRefGroup = 09518C3F13BCC1AF000837A7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				09518C3D13BCC1AF000837A7 /* MQAnnotationSample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		09518C3C13BCC1AF000837A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09518C4D13BCC1AF000837A7 /* InfoPlist.strings in Resources */,
+				09518C5513BCC1AF000837A7 /* MQMapViewController.h in Resources */,
+				09518C5A13BCC1AF000837A7 /* MQMapViewController_iPhone.xib in Resources */,
+				09518C5D13BCC1B0000837A7 /* MQMapViewController_iPad.xib in Resources */,
+				098964C013D5C6F500D52647 /* sign.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		09518C3A13BCC1AF000837A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09518C4F13BCC1AF000837A7 /* main.m in Sources */,
+				09518C5313BCC1AF000837A7 /* MQAnnotationSampleAppDelegate.m in Sources */,
+				09518C5713BCC1AF000837A7 /* MQMapViewController.m in Sources */,
+				098964B813D5C10600D52647 /* BusinessAnnotation.m in Sources */,
+				098964BB13D5C12200D52647 /* ResidentialAnnotation.m in Sources */,
+				098964BE13D5C16700D52647 /* PlaceAnnotation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		09518C4B13BCC1AF000837A7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				09518C4C13BCC1AF000837A7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		09518C5813BCC1AF000837A7 /* MQMapViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				09518C5913BCC1AF000837A7 /* en */,
+			);
+			name = MQMapViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		09518C5B13BCC1B0000837A7 /* MQMapViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				09518C5C13BCC1B0000837A7 /* en */,
+			);
+			name = MQMapViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		09518C5E13BCC1B0000837A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		09518C5F13BCC1B0000837A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		09518C6113BCC1B0000837A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../..\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "mapsdktest/MQAnnotationSample-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "mapsdktest/MQAnnotationSample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				OTHER_CFLAGS = "-DENABLE_SDK_DEVELOPMENT=1";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = MQAnnotationSample;
+				USER_HEADER_SEARCH_PATHS = "../../**";
+				WARNING_CFLAGS = "-DENABLE_SDK_DEVELOPMENT=1";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		09518C6213BCC1B0000837A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../..\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "mapsdktest/MQAnnotationSample-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "mapsdktest/MQAnnotationSample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = MQAnnotationSample;
+				USER_HEADER_SEARCH_PATHS = "../../**";
+				WARNING_CFLAGS = "-DENABLE_SDK_DEVELOPMENT=1";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		09518C3813BCC1AF000837A7 /* Build configuration list for PBXProject "MQAnnotationSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09518C5E13BCC1B0000837A7 /* Debug */,
+				09518C5F13BCC1B0000837A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		09518C6013BCC1B0000837A7 /* Build configuration list for PBXNativeTarget "MQAnnotationSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09518C6113BCC1B0000837A7 /* Debug */,
+				09518C6213BCC1B0000837A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 09518C3513BCC1AF000837A7 /* Project object */;
+}

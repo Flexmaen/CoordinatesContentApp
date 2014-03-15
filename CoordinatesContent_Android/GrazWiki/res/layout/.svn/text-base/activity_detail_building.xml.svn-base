@@ -1,0 +1,54 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="100" >
+
+    <TextView
+        android:id="@+id/tv_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:background="#00ddff"
+        android:text="   Bilder"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/tv_header" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalscrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+        android:layout_weight="40" >
+
+        <LinearLayout
+            android:id="@+id/mygallery"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_margin="0dp"
+            android:orientation="horizontal" />
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/tv_header2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:background="#00ddff"
+        android:text="   Beschreibung"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/tv_header" />
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="40"
+        android:maxLines="7"
+        android:padding="10dp"
+        android:scrollbars="vertical"
+        android:text="Lade Daten..."
+        android:textSize="@dimen/tv_description" />
+
+</LinearLayout>

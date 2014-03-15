@@ -1,0 +1,13 @@
+<resources>
+
+    <!--
+         Customize dimensions originally defined in res/values/dimens.xml (such as
+         screen margins) for sw600dp devices (e.g. 7" tablets) here.
+    -->
+    
+    
+    <dimen name="tv_description">18sp</dimen>
+    <dimen name="tv_header">22sp</dimen>
+ 
+
+</resources>

@@ -1,0 +1,338 @@
+package at.bitschmiede.grazwiki;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.View;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+import at.bitschmiede.grazwiki.JSON.Building;
+import at.bitschmiede.grazwiki.JSON.BuildingDescription;
+import at.bitschmiede.grazwiki.JSON.BuildingImage;
+import at.bitschmiede.grazwiki.JSON.DownloadBuildingInformation;
+import at.bitschmiede.grazwiki.JSON.DownloadEvents;
+
+import com.loopj.android.image.SmartImageView;
+
+public class DetailBuilding extends Activity implements DownloadEvents {
+
+	private LinearLayout _myGallery;
+	private ProgressDialog _progressDialog;
+	private BuildingDescription[] _currentBuildingDescription;
+	private int _indexOfCurrentDescription;
+	private int _idOfBuilding;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		// setContentView(R.layout.activity_detail_building);
+
+		// get the id and address from the intent set in SearchBuildings
+		Bundle extras = getIntent().getExtras();
+		_idOfBuilding = extras.getInt("buildingid");
+		String address = extras.getString("address");
+		_indexOfCurrentDescription = extras.getInt("index");
+	
+		// set address in menu bar
+		setTitle(address);
+
+		// first show the progress dialog while loading data from the net
+		_progressDialog = ProgressDialog.show(DetailBuilding.this,
+				"Lade Daten...", "Bitte warten bis Daten fertig geladen sind.",
+				false, false);
+
+		// now download the building information of the current building
+		// ... everything else is done in Event Listener
+		DownloadBuildingInformation downloadBuildingInfo = new DownloadBuildingInformation();
+		downloadBuildingInfo.addListener(this);
+		downloadBuildingInfo.execute(_idOfBuilding);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.detail_building, menu);
+		return true;
+	}
+
+	View insertPhoto(String drawableName) {
+		// Bitmap bm = decodeSampledBitmapFromUri(path, 220, 220);
+		// String mDrawableName = "z1_709a";
+		// int resID = getResources().getIdentifier(path , "drawable",
+		// getPackageName());
+		//int resID2 = getResources().getIdentifier(drawableName, "drawable",getPackageName());
+
+		String host = "http://bitschmiede.no-ip.org/~thas/grazwiki/images/";
+		String imageUrl = host + drawableName;
+		Drawable drawable = null;
+		
+		/*try {
+			drawable = this.LoadImageFromWebOperations(imageUrl); //this.drawable_from_url(imageUrl, "image");
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+		
+		//Bitmap image = BitmapFactory
+				//.decodeResource(this.getResources(), resID2);
+		//Bitmap image = getBitmapFromURL(imageUrl);
+				
+		 DisplayMetrics metrics = new DisplayMetrics();
+		 getWindowManager().getDefaultDisplay().getMetrics(metrics);
+		 
+		 int height = metrics.heightPixels; ///100*40; 
+		 int width = metrics.widthPixels;
+		
+		 if (width>height){
+			 int tHelper = height;
+			 height = width;
+			 width = tHelper;
+		 }
+		 
+		 height = height / 100 *40;
+	
+		LinearLayout layout = new LinearLayout(getApplicationContext());
+		layout.setLayoutParams(new LayoutParams(width, height));
+		layout.setGravity(Gravity.CENTER);
+
+		/*ImageView imageView = new ImageView(getApplicationContext());
+		imageView.setLayoutParams(new LayoutParams(270, 270));
+		imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+		imageView.setImageDrawable(drawable);*/
+		
+		SmartImageView smartImageView = new SmartImageView(getApplicationContext());
+		smartImageView.setLayoutParams(new LayoutParams(width,height));
+		smartImageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+		smartImageView.setImageUrl(imageUrl);
+		/*if (this.exists(imageUrl)){
+			
+		}else{
+			int resID2 = getResources().getIdentifier("no_image", "drawable",getPackageName());
+			Drawable noImage = getResources().getDrawable( resID2 );
+			smartImageView.setImageDrawable(noImage);
+		}*/
+		
+		
+		layout.addView(smartImageView);
+		return layout;
+	}
+
+	public Bitmap decodeSampledBitmapFromUri(String path, int reqWidth,
+			int reqHeight) {
+		Bitmap bm = null;
+
+		// First decode with inJustDecodeBounds=true to check dimensions
+		final BitmapFactory.Options options = new BitmapFactory.Options();
+		options.inJustDecodeBounds = true;
+		BitmapFactory.decodeFile(path, options);
+
+		// Calculate inSampleSize
+		options.inSampleSize = calculateInSampleSize(options, reqWidth,
+				reqHeight);
+
+		// Decode bitmap with inSampleSize set
+		options.inJustDecodeBounds = false;
+		bm = BitmapFactory.decodeFile(path, options);
+
+		return bm;
+	}
+
+	public int calculateInSampleSize(
+
+	BitmapFactory.Options options, int reqWidth, int reqHeight) {
+		// Raw height and width of image
+		final int height = options.outHeight;
+		final int width = options.outWidth;
+		int inSampleSize = 1;
+
+		if (height > reqHeight || width > reqWidth) {
+			if (width > height) {
+				inSampleSize = Math.round((float) height / (float) reqHeight);
+			} else {
+				inSampleSize = Math.round((float) width / (float) reqWidth);
+			}
+		}
+
+		return inSampleSize;
+	}
+
+	@Override
+	public void downloadBuildingsOfRegionCompleted(Building[] buildingsInRegion) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void downloadAllBuildingsCompleted(Building[] buildingsInRegion) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void downloadBuildingInformationCompleted(int buildingID,
+			BuildingDescription[] buildingDescriptions) {
+		_currentBuildingDescription = buildingDescriptions;
+		this.updateData();
+	}
+
+	public void buttonOlderEntriesClicked(View v) {
+		// does something very interesting
+		
+		Intent intentDetail = new Intent(DetailBuilding.this,
+				at.bitschmiede.grazwiki.DetailBuilding.class);
+		;
+		intentDetail.putExtra("address", this._currentBuildingDescription[0].getTitle());
+		intentDetail.putExtra("buildingid", _idOfBuilding);
+		intentDetail.putExtra("index", this._indexOfCurrentDescription+1);
+		startActivityForResult(intentDetail, 1);
+	}
+	
+	// update the gui with the downloaded data
+	private void updateData(){
+		
+		// close the progress dialog
+		_progressDialog.dismiss();
+		// initialize the View
+		setContentView(R.layout.activity_detail_building);
+		_myGallery = (LinearLayout) findViewById(R.id.mygallery);
+	
+		// no update the view with the downloaded data
+		if (_currentBuildingDescription != null) {
+
+			int countOfVersions = _currentBuildingDescription.length;
+			
+			String text = _currentBuildingDescription[_indexOfCurrentDescription].getText();
+			_currentBuildingDescription[_indexOfCurrentDescription].getTitle();
+
+			BuildingImage[] buildingImages = _currentBuildingDescription[_indexOfCurrentDescription]
+					.getImages();
+
+		
+			for (int i = 0; i < buildingImages.length; i++) {
+				String imageName = buildingImages[i].getImageName();
+				//imageName = imageName.substring(0, imageName.lastIndexOf('.'));
+				//String imageUrl =  imageName = host + imageName;
+				_myGallery.addView(insertPhoto(imageName));
+			}
+
+			// Creating TextView Variable
+			TextView tv = (TextView) findViewById(R.id.tv_description);
+			// Set the scrolling method
+			tv.setMovementMethod(new ScrollingMovementMethod());
+			// Sets the new text to TextView (runtime click event)ann 
+			tv.setText(text);
+
+			
+			// only set the previous button if there are older versions! 
+			// 1. check if count is at least 2
+			// 2. check if current index is < count 
+			Button btn = (Button) findViewById(R.id.btn_previous);
+			if ((countOfVersions > 1) && (this._indexOfCurrentDescription < countOfVersions-1) ) {
+				btn.setVisibility(0);
+				btn.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						buttonOlderEntriesClicked(v);
+					}
+				});
+				
+			}else {
+				btn.setVisibility(View.GONE);	
+			}
+			
+			Button btnNewer = (Button) findViewById(R.id.btn_next);
+			if ((countOfVersions <= 1) || (countOfVersions >1 && this._indexOfCurrentDescription == 0))
+				btnNewer.setVisibility(View.GONE);
+			else if ((countOfVersions >=1 ) && (this._indexOfCurrentDescription > 1)){
+				btnNewer.setVisibility(0);
+				
+			}
+		
+		}
+	}
+	
+	Drawable drawable_from_url(String url, String src_name) throws 
+	   java.net.MalformedURLException, java.io.IOException 
+	{
+	   return Drawable.createFromStream(((java.io.InputStream)
+	      new java.net.URL(url).getContent()), src_name);
+	}
+	
+	  private Drawable LoadImageFromWebOperations(String url)throws 
+	   java.net.MalformedURLException, java.io.IOException 
+	    {
+	         try
+	         {
+	             InputStream is = (InputStream) new URL(url).getContent();
+	             Drawable d = Drawable.createFromStream(is, "src name");
+	             return d;
+	         }catch (Exception e) {
+	             System.out.println("Exc="+e);
+	             return null;
+	         }
+	     }
+	  
+	  public static Bitmap getBitmapFromURL(String src) {
+	        try {
+	            Log.e("src",src);
+	            URL url = new URL(src);
+	            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+	            connection.setDoInput(true);
+	            connection.connect();
+	            InputStream input = connection.getInputStream();
+	            Bitmap myBitmap = BitmapFactory.decodeStream(input);
+	            Log.e("Bitmap","returned");
+	            return myBitmap;
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	            Log.e("Exception",e.getMessage());
+	            return null;
+	        }
+	    }
+	  
+	  public void newerBuildingClicked(View view) {
+		     // Kabloey
+			this.finish();
+
+		 }
+	  
+	  public  boolean exists(String URLName){
+		    try {
+		      HttpURLConnection.setFollowRedirects(false);
+		      // note : you may also need
+		      //        HttpURLConnection.setInstanceFollowRedirects(false)
+		      HttpURLConnection con =
+		         (HttpURLConnection) new URL(URLName).openConnection();
+		      con.setRequestMethod("HEAD");
+		      return (con.getResponseCode() == HttpURLConnection.HTTP_OK);
+		    }
+		    catch (Exception e) {
+		       e.printStackTrace();
+		       return false;
+		    }
+		  }
+	  
+	  
+
+}

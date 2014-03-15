@@ -1,0 +1,69 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:orientation="vertical">
+
+      <TextView
+        android:id="@+id/tv_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="   Bilder"
+         android:background="#00ddff"
+   	 android:textColor="#ffffff"
+        />
+    
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <LinearLayout
+            android:id="@+id/mygallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            />
+    </HorizontalScrollView>
+    
+        <TextView
+        android:id="@+id/tv_header2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="   Beschreibung"
+         android:background="#00ddff"
+   	 	android:textColor="#ffffff"
+        />
+    
+      <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:maxLines = "7"
+		android:scrollbars = "vertical"
+        android:text="Lade Daten..."/>
+      
+      <RelativeLayout android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    android:layout_alignParentBottom="true">
+    <LinearLayout 
+    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    android:layout_alignParentBottom="true">
+        <Button android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"           
+            android:id="@+id/btn_next" 
+            android:text="Neuer ..." 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_weight="1"
+            android:onClick="newerBuildingClicked"/>
+        <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:id="@+id/btn_previous" 
+            android:text="Älter ... " android:layout_weight="1"
+            />
+    </LinearLayout >
+</RelativeLayout>
+
+</LinearLayout>

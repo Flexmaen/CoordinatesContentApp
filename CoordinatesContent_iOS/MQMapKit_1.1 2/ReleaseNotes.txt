@@ -1,0 +1,36 @@
+MapQuest Map SDK for iOS Release Notes Release: 1.1
+
+Introduction
+------------
+The MapQuest Map SDK for iOS is a static framework used to embed maps and map functions in iOS applications natively, to be run on the iPhone and iPad. 
+
+Bug Reporting
+-------------
+Please report any but not mentioned in the "Notes and Known Issues" by sending an email to support@mapquest.com.
+
+Notes and Known Issues
+----------------------
+INSTALL CHANGE:
+
+**NOTE: The Other Linker Flag -ObjC is now required.
+
+The framework libxml2 needs to be linked in for this version of the SDK.
+
+When pinch zooming there is a noticeable jump in the animation between discrete zoom levels for overlays.
+
+Changes Since 1.0.1
+--------------------
+Various stability improvements and tile rendering performance improvements
+Fixed an issue introduced in 1.0 where the user location annotation is rendered in the proper position when panning/zooming the map
+
+IMPORTANT CHANGE TO MQROUTE USAGE -- AS OF 1.0.8
+---------------------------------
+You no longer set linecolor, line width, or fill color on the MQRoute object.
+Instead implement the Map View delegate method -(MQOverlayView*)mapView:viewForOverlay:
+If you do not implement this method, a line overlay view will be created with default settings:
+Line Color: Orange
+Line Width: 3.5
+Fill Color: Black
+
+When implementing this method, you may test for MQRoutePolyline as the type to distinguish between other 
+types of MQPolyline 

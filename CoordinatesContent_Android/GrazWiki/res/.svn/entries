@@ -1,0 +1,70 @@
+10
+
+dir
+94
+svn://gonzalesblanco@bitschmiede.no-ip.org/grazwiki_android/res
+svn://gonzalesblanco@bitschmiede.no-ip.org/grazwiki_android
+
+
+
+2013-06-03T21:54:24.238165Z
+82
+gonzalesblanco
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0ba6229d-b240-4e3b-8a01-bc71be03bb4c
+
+values
+dir
+
+values-sw720dp-land
+dir
+
+values-sw600dp
+dir
+
+drawable
+dir
+
+drawable-hdpi
+dir
+
+drawable-xxhdpi
+dir
+
+menu
+dir
+
+values-v11
+dir
+
+drawable-ldpi
+dir
+
+values-v14
+dir
+
+drawable-mdpi
+dir
+
+raw
+dir
+
+drawable-xhdpi
+dir
+
+layout
+dir
+

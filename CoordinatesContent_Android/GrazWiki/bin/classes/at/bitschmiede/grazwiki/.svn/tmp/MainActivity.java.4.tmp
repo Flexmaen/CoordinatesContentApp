@@ -1,0 +1,1171 @@
+package at.bitschmiede.grazwiki;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Bundle;
+import android.provider.Settings;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.Toast;
+import at.bitschmiede.grazwiki.JSON.Building;
+import at.bitschmiede.grazwiki.JSON.BuildingDescription;
+import at.bitschmiede.grazwiki.JSON.Category;
+import at.bitschmiede.grazwiki.JSON.DownloadAllBuildings;
+import at.bitschmiede.grazwiki.JSON.DownloadAllCategories;
+import at.bitschmiede.grazwiki.JSON.DownloadBuildingsOfCategory;
+import at.bitschmiede.grazwiki.JSON.DownloadBuildingsOfRegion;
+import at.bitschmiede.grazwiki.JSON.DownloadEvents;
+import at.bitschmiede.grazwiki.JSON.DownloadRouteInformation;
+import at.bitschmiede.grazwiki.JSON.Route;
+import at.bitschmiede.grazwiki.JSON.RouteInformation;
+import at.bitschmiede.grazwiki.JSON.RouteLine;
+
+import com.mapquest.android.maps.AnnotationView;
+import com.mapquest.android.maps.DefaultItemizedOverlay;
+import com.mapquest.android.maps.GeoPoint;
+import com.mapquest.android.maps.ItemizedOverlay;
+import com.mapquest.android.maps.LineOverlay;
+import com.mapquest.android.maps.MapActivity;
+import com.mapquest.android.maps.MapView;
+import com.mapquest.android.maps.MapView.MapViewEventListener;
+import com.mapquest.android.maps.MyLocationOverlay;
+import com.mapquest.android.maps.Overlay;
+import com.mapquest.android.maps.OverlayItem;
+import com.mapquest.android.maps.RouteManager;
+import com.mapquest.android.maps.RouteResponse;
+import com.mapquest.android.maps.ServiceResponse.Info;
+
+public class MainActivity extends MapActivity implements MapViewEventListener,
+		DownloadEvents, OnClickListener {
+
+	private Menu _menu;
+	private ProgressDialog _progressDialog;
+	private MyLocationOverlay _myLocationOverlay;
+	private AnnotationView _annotation;
+	private MapView _map;
+	private GeoPoint _geoPointGraz;
+	private Building[] _allBuildings;
+	private Intent _intentSearch;
+	private Intent _intentRouteSelection;
+	private boolean _isLocationOverlayInit;
+	private boolean _isLocating;
+	private boolean _mapWasCreated = false;
+	private boolean _isShowingRoute = false;
+	private RouteManager routeManager;
+	private Button _btnRoute;
+	private int _currentRouteID;
+	
+	LineOverlay _lineOverlay = null;
+
+	private boolean _isAllBuildingsLoaded = false;
+	private boolean _isAllCategoriesLoaded = false;
+	private static final int MENU_CATEGORY = 0;
+	private static final int API_LEVEL_ANDROID_3_0 = 11;
+	private boolean _isCategoryFilterActive = false;
+	private Category[] _categories;
+
+	// final RouteManager routeManager;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		_geoPointGraz = null;
+		_isLocationOverlayInit = false;
+		_isLocating = false;
+
+		final String XML_PATH = this.getFilesDir().getAbsolutePath()
+				+ "allbuildings.json";
+
+		this._btnRoute = new Button(this);
+		this._btnRoute.setText("Route verlassen");
+		this._btnRoute.setOnClickListener(this);
+
+		DisplayMetrics metrics = new DisplayMetrics();
+		getWindowManager().getDefaultDisplay().getMetrics(metrics);
+		GlobalState gs = (GlobalState) getApplication();
+		gs.setDisplayMetrics(metrics);
+
+		this.setupMap();
+		this.setupMyLocation();
+
+		/*
+		 * LayoutParams param = new LinearLayout.LayoutParams(
+		 * LayoutParams.MATCH_PARENT, height-50-25-50-200, 1.0f); LinearLayout
+		 * llmap = (LinearLayout)findViewById(R.id.map_layout); //
+		 * mapLayout.setLayoutParams(param); View mapView =
+		 * (View)this.findViewById(R.id.map); llmap.setLayoutParams(param);
+		 */
+
+		// this._btnRoute = (Button) this.findViewById(R.id.btn_route);
+		// this._btnRoute.setVisibility(View.GONE);
+		/*
+		 * RelativeLayout mainLayout = (RelativeLayout) this
+		 * .findViewById(R.id.rel_layout);
+		 * mainLayout.setVisibility(RelativeLayout.GONE);
+		 * 
+		 * LinearLayout mapLayout = (LinearLayout) this
+		 * .findViewById(R.id.map_layout);
+		 */
+
+		// first show the progress dialog while loading data from the net
+		_progressDialog = ProgressDialog.show(MainActivity.this,
+				"Lade Daten...", "Bitte warten bis Daten fertig geladen sind.",
+				false, false);
+
+		try {
+			/*
+			 * String datax = ""; InputStream is =
+			 * getResources().openRawResource(R.raw.allbuildings);
+			 * BufferedReader br = new BufferedReader(new
+			 * InputStreamReader(is)); String readLine = null; String readString
+			 * = br.readLine(); while (readString != null) { datax = datax +
+			 * readString; readString = br.readLine();
+			 * 
+			 * }
+			 */
+			// Log.e("filecontent", datax);
+
+			// --Dummy Code zum Downloaden Aller Buildings. EVENT: ->
+			// downloadAllBuildingsCompleted()
+
+			DownloadAllBuildings downloadBuildingsAll = new DownloadAllBuildings();
+			downloadBuildingsAll.addListener(this);
+			downloadBuildingsAll.execute();
+
+			DownloadAllCategories downloadCategories = new DownloadAllCategories();
+			downloadCategories.addListener(this);
+			downloadCategories.execute();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		_map.destroy();
+		_geoPointGraz = null;
+		System.exit(0);
+	}
+
+	private void fillCategoriesMenu(Category[] categories) {
+		try {
+			if (android.os.Build.VERSION.SDK_INT < API_LEVEL_ANDROID_3_0) 
+				return;
+
+			MenuItem subItem = _menu.getItem(MENU_CATEGORY).getSubMenu()
+					.add("Kein Kategorienfilter");
+			subItem.setCheckable(true);
+			subItem.setChecked(true);
+			if (categories != null) {
+				for (int i = 0; i < categories.length; i++) {
+					subItem = _menu.getItem(MENU_CATEGORY).getSubMenu()
+							.add(categories[i].getCategory());
+					subItem.setCheckable(true);
+
+				}
+			}
+		} catch (Exception ex) {
+			Log.v("huh", "huh");
+		}
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		_menu = menu;
+
+		// menu4.add(CATEGOR, SUBMENU1, 1, "SubMenu No. 1");
+
+		int count = menu.size();
+
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.main, menu);
+
+		count = menu.size();
+		String title = (String) menu.getItem(0).getTitle();
+		// menu.getItem(0).getSubMenu().add("huhuhuh");
+		title = (String) menu.getItem(1).getTitle();
+
+		// For the fucking Android 2.3
+		if (android.os.Build.VERSION.SDK_INT < API_LEVEL_ANDROID_3_0) {
+			MenuItem subItem = _menu.getItem(MENU_CATEGORY).getSubMenu()
+					.add("Kein Kategorienfilter");
+			subItem.setCheckable(true);
+			subItem.setChecked(true);
+			if (_categories != null) {
+				for (int i = 0; i < _categories.length; i++) {
+					subItem = _menu.getItem(MENU_CATEGORY).getSubMenu()
+							.add(_categories[i].getCategory());
+					subItem.setCheckable(true);
+
+				}
+			}
+		}
+
+		// _menu.getItem(index)
+		super.onCreateOptionsMenu(menu);
+
+		return true;
+
+		/*
+		 * SubMenu subMenu2 = menu.addSubMenu("Kategorien"); SubMenu subMenu1 =
+		 * menu.addSubMenu("Men�");
+		 * 
+		 * String sSubMenu1 = "Suche"; String sSubMenu2 = "Routen"; String
+		 * sSubMenu3 = "Lokalisieren"; String sSubMenu4 = "Impressum";
+		 * 
+		 * String sSubMenu2_1 = "Altbauten"; String sSubMenu2_2 =
+		 * "Schiache Bauten ;)";
+		 * 
+		 * subMenu1.add(0, 1, Menu.NONE,
+		 * sSubMenu1).setIcon(R.drawable.btn_search); subMenu1.add(0, 2,
+		 * Menu.NONE, sSubMenu2).setIcon(R.drawable.btn_route); subMenu1.add(0,
+		 * 3, Menu.NONE, sSubMenu3).setIcon(R.drawable.btn_locate);
+		 * subMenu1.add(0, 4, Menu.NONE,
+		 * sSubMenu4).setIcon(R.drawable.btn_info);
+		 * 
+		 * MenuItem subMenu1Item = subMenu1.getItem(); subMenu1Item
+		 * .setIcon(R.drawable.abs__ic_menu_moreoverflow_normal_holo_dark);
+		 * subMenu1Item.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS |
+		 * MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+		 * 
+		 * subMenu2.add(0, 5, Menu.NONE, sSubMenu2_1).setIcon(
+		 * R.drawable.btn_search); subMenu2.add(0, 6, Menu.NONE, sSubMenu2_2)
+		 * .setIcon(R.drawable.btn_route);
+		 * 
+		 * MenuItem subMenuItem2 = subMenu2.getItem();
+		 * subMenuItem2.setIcon(R.drawable.ic_list);
+		 * subMenuItem2.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS |
+		 * MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+		 * 
+		 * super.onCreateOptionsMenu(menu);
+		 * 
+		 * return true;
+		 */
+
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle item selection
+
+		int itemID = item.getItemId();
+
+		switch (itemID) {
+		case R.id.mn_submenu_search:
+
+			if (!isNetworkAvailable()) {
+				Toast.makeText(_map.getContext(),
+						"Info: Es besteht keine Verbindung zum Internet!",
+						Toast.LENGTH_SHORT).show();
+				return true;
+			}
+			_intentSearch.putExtra("dummy", 1234);
+			startActivityForResult(_intentSearch, 20);
+			// finish();
+			return true;
+
+		case R.id.mn_submenu_route:
+
+			if (!isNetworkAvailable()) {
+				Toast.makeText(_map.getContext(),
+						"Info: Es besteht keine Verbindung zum Internet!",
+						Toast.LENGTH_SHORT).show();
+				return true;
+			}
+
+			_intentRouteSelection.putExtra("dummy", 1234);
+			startActivityForResult(_intentRouteSelection, 10);
+			// finish();
+			return true;
+		case R.id.mn_submenu_locate:
+			this.toogleUpdateMenu();
+			return true;
+		case R.id.mn_submenu_info:
+			Intent intentImpressum = new Intent(MainActivity.this,
+					at.bitschmiede.grazwiki.ImpressumActivity.class);
+			startActivity(intentImpressum);
+			return true;
+		case 5:
+			Toast.makeText(_map.getContext(), "fünf", Toast.LENGTH_SHORT)
+					.show();
+			return true;
+		case 0: // Kategorien
+			// Uncheck all Items
+			for (int i = 0; i < _menu.getItem(MENU_CATEGORY).getSubMenu()
+					.size(); i++) {
+				_menu.getItem(MENU_CATEGORY).getSubMenu().getItem(i)
+						.setChecked(false);
+			}
+			// Check selected Item
+			item.setChecked(true);
+			// Set CategoryfilterFlag
+			if (item.getTitle().toString() == "Kein Kategorienfilter") {
+				_isCategoryFilterActive = false;
+				this.downloadBuildingsForRegion(_map);
+			} else {
+				_isCategoryFilterActive = true;
+				this.downloadBuildingsOfCategory(item.getTitle().toString());
+			}
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
+
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+		String sID = (new Integer(resultCode)).toString();
+
+		if (requestCode == 10) { // route
+			if (resultCode == RESULT_OK) {
+				// A contact was picked. Here we will just display it
+				// to the user.
+				// startActivity(new Intent(Intent.ACTION_VIEW, data));
+				Bundle extras = data.getExtras();
+				String temp = null;
+				if (extras != null) {
+					temp = extras.getString("routeID");
+					this.downloadRoute(Integer.parseInt(temp));
+				}
+
+				// Toast.makeText(_map.getContext(), temp,
+				// Toast.LENGTH_SHORT).show();
+			}
+		} else if (requestCode == 20) {
+			if (resultCode == RESULT_OK) {
+				// A contact was picked. Here we will just display it
+				// to the user.
+				// startActivity(new Intent(Intent.ACTION_VIEW, data));
+				Bundle extras = data.getExtras();
+				String temp = null;
+				if (extras != null) {
+					int id = extras.getInt("id");
+					String title = extras.getString("title");
+					double longitude = extras.getDouble("longitude");
+					double latitude = extras.getDouble("latitude");
+
+					Building building = new Building();
+					building.setID(id);
+					building.setLatitude(latitude);
+					building.setLongitude(longitude);
+					building.setTitle(title);
+
+					Building[] buildingArray = new Building[1];
+					buildingArray[0] = building;
+
+					if (!this._isShowingRoute)
+						this.showRemoveButton("Alle Gebäude anzeigen");
+					else
+						this.setRemoveButtonText("Alle Gebäude anzeigen");
+
+					this._isShowingRoute = true;
+					this._currentRouteID = -1;
+
+					this.addOverlaysWithBuildingArray(buildingArray);
+					GeoPoint tCenter = new GeoPoint(latitude, longitude);
+					_map.getController().setCenter(tCenter);
+
+				}
+
+				// Toast.makeText(_map.getContext(), temp,
+				// Toast.LENGTH_SHORT).show();
+			}
+
+		}
+	}
+
+	public boolean downloadRoute(int routeID) {
+
+		// Downloaden der Route
+		DownloadRouteInformation downloadRouteInfo = new DownloadRouteInformation();
+		downloadRouteInfo.addListener(this);
+		downloadRouteInfo.execute(routeID);
+
+		return true;
+	}
+
+	public boolean createRoute() {
+
+		List<String> locations = null;
+
+		routeManager.createRoute("40.07546,-76.329999", "41.07546,-76.329999");
+
+		return true;
+	}
+
+	// add an itemized overlay to map
+	private void addOverlaysWithBuildingArray(Building[] buildings) {
+
+		// use a custom POI marker by referencing the bitmap file directly,
+		// using the filename as the resource ID
+		Drawable icon = getResources().getDrawable(R.drawable.location_marker);
+
+		// Create new marker
+		Drawable icon_red = this.getResources().getDrawable(
+				R.drawable.location_marker_red);
+		// Set the bounding for the drawable
+		icon_red.setBounds(0 - icon.getIntrinsicWidth() / 2,
+				0 - icon.getIntrinsicHeight(), icon.getIntrinsicWidth() / 2, 0);
+
+		final DefaultItemizedOverlay poiOverlay = new DefaultItemizedOverlay(
+				icon);
+
+		// _map.getOverlays().clear();
+		this.removeAllOverlayItems();
+
+		for (int i = 0; i < buildings.length; i++) {
+			Log.d("Adresse", buildings[i].getTitle());
+
+			double longitude = buildings[i].getLongitude();
+			double latitude = buildings[i].getLatitude();
+
+			OverlayItem buildingOverlay = new OverlayItem(new GeoPoint(
+					latitude, longitude), buildings[i].getTitle(), null);
+			// if (i % 2 == 0)
+			// buildingOverlay.setMarker(icon_red);
+			poiOverlay.addItem(buildingOverlay);
+		}
+
+		// add a tap listener for the POI overlay
+		poiOverlay.setTapListener(new ItemizedOverlay.OverlayTapListener() {
+			@Override
+			public void onTap(GeoPoint pt, MapView mapView) {
+				// when tapped, show the annotation for the overlayItem
+				int lastTouchedIndex = poiOverlay.getLastFocusedIndex();
+				if (lastTouchedIndex > -1) {
+					OverlayItem tapped = poiOverlay.getItem(lastTouchedIndex);
+					_annotation.showAnnotationView(tapped);
+
+				}
+			}
+		});
+
+		_map.getOverlays().add(poiOverlay);
+		_map.invalidate();
+
+	}
+
+	// add an itemized overlay to map
+	private void addOverlaysWithRouteInformationArray(
+			RouteInformation routeInformation) {
+
+		// use a custom POI marker by referencing the bitmap file directly,
+		// using the filename as the resource ID
+		Drawable icon = getResources().getDrawable(R.drawable.location_marker);
+		final DefaultItemizedOverlay poiOverlay = new DefaultItemizedOverlay(
+				icon);
+
+		// _map.getOverlays().clear();
+		this.removeAllOverlayItems();
+		GeoPoint tCenter = null;
+
+		for (int i = 0; i < routeInformation.getRouteAddress().length; i++) {
+			Log.d("Adresse", routeInformation.getRouteAddress()[i].getTitle());
+
+			double longitude = routeInformation.getRouteAddress()[i]
+					.getLongitude();
+			double latitude = routeInformation.getRouteAddress()[i]
+					.getLatitude();
+
+			tCenter = new GeoPoint(latitude, longitude);
+
+			OverlayItem buildingOverlay = new OverlayItem(new GeoPoint(
+					latitude, longitude),
+					routeInformation.getRouteAddress()[i].getTitle(), null);
+			poiOverlay.addItem(buildingOverlay);
+		}
+
+		// add a tap listener for the POI overlay
+		poiOverlay.setTapListener(new ItemizedOverlay.OverlayTapListener() {
+			@Override
+			public void onTap(GeoPoint pt, MapView mapView) {
+				// when tapped, show the annotation for the overlayItem
+				int lastTouchedIndex = poiOverlay.getLastFocusedIndex();
+				if (lastTouchedIndex > -1) {
+					OverlayItem tapped = poiOverlay.getItem(lastTouchedIndex);
+					_annotation.showAnnotationView(tapped);
+
+				}
+			}
+		});
+
+		if (!this._isShowingRoute)
+			this.showRemoveButton("Route verlassen");
+		else
+			this.setRemoveButtonText("Route verlasen");
+
+		this._isShowingRoute = true;
+
+		_map.getOverlays().add(poiOverlay);
+		_map.invalidate();
+		_map.getController().setCenter(tCenter);
+
+		/*
+		 * LinearLayout mainLayout = (LinearLayout) this
+		 * .findViewById(R.id.main_layout);
+		 * 
+		 * Button buyButton = new Button(this);
+		 * buyButton.setText("Hier klicken du sau"); RelativeLayout relative =
+		 * new RelativeLayout(this); RelativeLayout.LayoutParams params = new
+		 * RelativeLayout.LayoutParams( LayoutParams.WRAP_CONTENT,
+		 * LayoutParams.WRAP_CONTENT );
+		 * params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+		 * relative.addView(buyButton, params); mainLayout.addView(relative, new
+		 * LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+		 */
+
+		/*
+		 * LinearLayout mapLayout = (LinearLayout) this
+		 * .findViewById(R.id.map_layout); LayoutParams param = new
+		 * LinearLayout.LayoutParams( LayoutParams.MATCH_PARENT, height/100*60,
+		 * 0.9f);
+		 * 
+		 * mapLayout.setLayoutParams(param);
+		 * 
+		 * 
+		 * RelativeLayout mainLayout = (RelativeLayout) this
+		 * .findViewById(R.id.rel_layout); LayoutParams params2 = new
+		 * RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
+		 * RelativeLayout.LayoutParams.WRAP_CONTENT); params2.height = 100;
+		 * mainLayout.setLayoutParams(params2);
+		 * mainLayout.setVisibility(RelativeLayout.VISIBLE);ab
+		 * this._btnRoute.setVisibility(View.VISIBLE);
+		 */
+
+	}
+
+	public void setRemoveButtonText(String buttonText) {
+		this._btnRoute.setText(buttonText);
+	}
+
+	public void showRemoveButton(String buttonText) {
+
+		Rect rectgle = new Rect();
+		Window window = getWindow();
+		window.getDecorView().getWindowVisibleDisplayFrame(rectgle);
+		int StatusBarHeight = rectgle.top;
+		int contentViewTop = window.findViewById(Window.ID_ANDROID_CONTENT)
+				.getTop();
+		int TitleBarHeight = contentViewTop - StatusBarHeight;
+
+		View content = getWindow().findViewById(Window.ID_ANDROID_CONTENT);
+		int contentHeight = content.getHeight();
+
+		LayoutParams param = new LinearLayout.LayoutParams(
+				LayoutParams.MATCH_PARENT, contentHeight - 70); // hack!! set
+																// the height
+																// for the
+																// button
+																// dynamically
+		LinearLayout llmap = (LinearLayout) findViewById(R.id.map_layout);
+		// mapLayout.setLayoutParams(param);
+		View mapView = (View) this.findViewById(R.id.map);
+		llmap.setLayoutParams(param);
+
+		LinearLayout ll = (LinearLayout) findViewById(R.id.buttonlayout);
+		LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT,
+				LayoutParams.WRAP_CONTENT);
+		this._btnRoute.setText(buttonText);
+		ll.addView(this._btnRoute, lp);
+	}
+
+	/**
+	 * Construct a simple line overlay to display on the map and add a
+	 * OverlayTapListener to respond to tap events.
+	 * 
+	 */
+	private void showLineOverlay(RouteInformation routeInformation) {
+
+		Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+		paint.setColor(Color.BLUE);
+		paint.setAlpha(100);
+		paint.setStyle(Paint.Style.STROKE);
+		paint.setStrokeJoin(Paint.Join.ROUND);
+		paint.setStrokeCap(Paint.Cap.ROUND);
+		paint.setStrokeWidth(5);
+
+		RouteLine routeLine[] = routeInformation.getRouteLine();
+		// line data
+		List<GeoPoint> routeData = new ArrayList<GeoPoint>();
+
+		for (int i = 0; i < routeLine.length - 1; i++) {
+
+			double longitude = routeInformation.getRouteAddress()[i]
+					.getLongitude();
+			double latitude = routeInformation.getRouteAddress()[i]
+					.getLatitude();
+
+			routeData.add(new GeoPoint(routeLine[i].getLatitude(), routeLine[i]
+					.getLongitude()));
+		}
+		this._lineOverlay = new LineOverlay(paint);
+		this._lineOverlay.setKey("routeline");
+		this._lineOverlay.setData(routeData);
+		this._map.getOverlays().add(this._lineOverlay);
+		// this.map.getController().z
+		this._map.invalidate();
+
+		/*
+		 * line.setTapListener(new LineOverlay.OverlayTapListener() {
+		 * 
+		 * @Override public void onTap(GeoPoint gp, MapView mapView) {
+		 * Toast.makeText(getApplicationContext(), "Line Tap!",
+		 * Toast.LENGTH_SHORT).show(); } });
+		 */
+
+	}
+
+	// return false since no route is being displayed
+	@Override
+	public boolean isRouteDisplayed() {
+		return false;
+	}
+
+	/*
+	 * Listener for MapView Events
+	 * 
+	 * @see com.mapquest.android.maps.MapView.MapViewEventListener
+	 */
+	@Override
+	public void longTouch(MapView arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mapLoaded(MapView arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void move(MapView arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void moveEnd(MapView arg0) {
+		// TODO Auto-generated method stub
+
+		this.downloadBuildingsForRegion(_map);
+
+		/*
+		 * //--Dummy Code zum Downloaden der Buildings einer Region. EVENT: ->
+		 * downloadBuildingsOfRegionCompleted() DownloadBuildingsOfRegion
+		 * downloadBuildingsRegion = new DownloadBuildingsOfRegion();
+		 * downloadBuildingsRegion.addListener(this);
+		 * //downloadBuildingsRegion.execute
+		 * (47.068771,47.071735,15.038386,15.441735);
+		 * downloadBuildingsRegion.execute(minLat,maxLat,minLong,maxLong);
+		 */
+
+	}
+
+	@Override
+	public void moveStart(MapView arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void touch(MapView arg0) {
+		// TODO Auto-generated method stub
+		this._annotation.hide();
+	}
+
+	@Override
+	public void zoomEnd(MapView arg0) {
+		// TODO Auto-generated method stub
+		this.downloadBuildingsForRegion(_map);
+	}
+
+	@Override
+	public void zoomStart(MapView arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void downloadBuildingsOfRegionCompleted(Building[] buildingsInRegion) {
+		// TODO Auto-generated method stub
+		/*
+		 * for(int i = 0; i < buildingsInRegion.length; i++) {
+		 * Log.d("Adresse",buildingsInRegion[i].getTitle()); }
+		 */
+		if (buildingsInRegion != null)
+			addOverlaysWithBuildingArray(buildingsInRegion);
+
+		if (!this.isNetworkAvailable())
+			Toast.makeText(_map.getContext(),
+					"Info: Es besteht keine Verbindung zum Internet!",
+					Toast.LENGTH_SHORT).show();
+	}
+
+	/*
+	 * Listeners for DownloadEvents
+	 * 
+	 * @see
+	 * at.bitschmiede.grazwiki.JSON.DownloadEvents#downloadAllBuildingsCompleted
+	 * (at.bitschmiede.grazwiki.JSON.Building[])
+	 */
+	@Override
+	public void downloadAllBuildingsCompleted(Building[] buildingsInRegion) {
+		// TODO Auto-generated method stub
+
+		/*
+		 * for(int i = 0; i < buildingsInRegion.length; i++) {
+		 * Log.d("Adresse",buildingsInRegion[i].getTitle()); }
+		 */
+
+		try {
+			_isAllBuildingsLoaded = true;
+			GlobalState gs = (GlobalState) getApplication();
+			gs.setAllBuildings(buildingsInRegion);
+			if (_isAllCategoriesLoaded) { // Wenn alle Kategorien und Gebäude
+											// geladen wurde wird erst
+											// initialisiert
+				this.initializeDataAfterStart();
+			}
+		} catch (Exception e) {
+			// Fehlerbehandlung
+			Log.d("EXCEPTION", e.getMessage());
+		}
+
+	}
+
+	@Override
+	public void downloadBuildingInformationCompleted(int buildingID,
+			BuildingDescription[] buildingDescriptions) {
+
+		/*
+		 * for(int i = 0; i < buildingDescriptions.length; i++) {
+		 * Log.d("Adresse",buildingDescriptions[i].getTitle()); }
+		 */
+	}
+
+	private void initializeDataAfterStart() {
+
+		// close the progress dialog
+		_progressDialog.dismiss();
+		// initialize the View
+		// setContentView(R.layout.activity_main);
+
+		// this.setupMap();
+		// this.setupMyLocation();
+
+		// intents
+		_intentSearch = new Intent(MainActivity.this,
+				at.bitschmiede.grazwiki.SearchBuildings.class);
+		_intentRouteSelection = new Intent(MainActivity.this,
+				at.bitschmiede.grazwiki.RouteSelection.class);
+
+		// initialize the annotation to be shown later
+		_annotation = new AnnotationView(_map);
+		// add an onclick listener to the annotationView
+		_annotation.setOnClickListener(new OnClickListener() {
+			@Override
+			// tapped on a annotation at the map -> show detail infos of the
+			// building
+			public void onClick(View v) {
+				// Toast.makeText(map.getContext(),"Clicked the " +
+				// annotation.getOverlayItem().getTitle() + " annotation",
+				// Toast.LENGTH_SHORT).show();
+
+				if (!isNetworkAvailable()) {
+					Toast.makeText(_map.getContext(),
+							"Info: Es besteht keine Verbindung zum Internet!",
+							Toast.LENGTH_SHORT).show();
+					return;
+				}
+
+				GlobalState gs = (GlobalState) getApplication();
+				Building[] tBuildings = gs.getAllBuildings();
+
+				for (int i = 0; i < tBuildings.length; i++) {
+					if (tBuildings[i].getTitle().equals(
+							_annotation.getOverlayItem().getTitle())) {
+						int id = tBuildings[i].getID();
+						Intent intentDetail = new Intent(
+								MainActivity.this,
+								at.bitschmiede.grazwiki.DetailBuildingContainer.class);
+						intentDetail.putExtra("address", _annotation
+								.getOverlayItem().getTitle());
+						intentDetail.putExtra("buildingid", id);
+						intentDetail.putExtra("index", 0);
+						startActivityForResult(intentDetail, 2);
+					}
+				}
+			}
+		});
+
+		this.downloadBuildingsForRegion(_map);
+
+		if (!this.isNetworkAvailable()) {
+			this.showNoNetworkDialog();
+		}
+
+		routeManager = new RouteManager(this);
+		routeManager.setMapView(this._map);
+		// routeManager.setItineraryView(itinerary);
+		routeManager.setDebug(true);
+		routeManager.setRouteCallback(new RouteManager.RouteCallback() {
+			@Override
+			public void onError(RouteResponse routeResponse) {
+				Info info = routeResponse.info;
+				int statusCode = info.statusCode;
+
+				StringBuilder message = new StringBuilder();
+				message.append("Unable to create route.\n").append("Error: ")
+						.append(statusCode).append("\n").append("Message: ")
+						.append(info.messages);
+				Toast.makeText(getApplicationContext(), message.toString(),
+						Toast.LENGTH_LONG).show();
+
+			}
+
+			@Override
+			public void onSuccess(RouteResponse routeResponse) {
+
+			}
+		});
+
+	}
+
+	private void setupMap() {
+
+		try {
+			// set the center point of graz for map
+
+			if (_mapWasCreated)
+				return;
+
+			if (_geoPointGraz == null)
+				_geoPointGraz = new GeoPoint(47.070297, 15.439997);
+
+			// create the mapview and center it arround the center of graz
+			_map = (MapView) findViewById(R.id.map);
+			_map.getController().setZoom(18);
+			_map.getController().setCenter(_geoPointGraz);
+			_map.setBuiltInZoomControls(true);
+			_map.addMapViewEventListener(this);
+
+			_mapWasCreated = true;
+
+		} catch (Exception ex) {
+			Log.e("Exception", ex.getMessage());
+		}
+
+	}
+
+	protected void setupMyLocation() {
+		this._myLocationOverlay = new MyLocationOverlay(this, _map);
+
+		_myLocationOverlay.disableCompass();
+		_myLocationOverlay.disableMyLocation();
+		_myLocationOverlay.runOnFirstFix(new Runnable() {
+			@Override
+			public void run() {
+
+				GeoPoint currentLocation = _myLocationOverlay.getMyLocation();
+				//_map.getController().animateTo(currentLocation);
+				//_map.getController().setZoom(14);
+				 _map.getOverlays().add(_myLocationOverlay);
+				_myLocationOverlay.setFollowing(false);
+
+			}
+		});
+
+		this._isLocationOverlayInit = true;
+	}
+
+	// overrides for the location service - IS NOT WORKING
+	// comment both overrides to avoid crash at start
+	// @Override
+	protected void onResume() {
+		super.onResume();
+		// if (!this._isLocationOverlayInit) return;
+
+		//this._myLocationOverlay.enableMyLocation();
+		//this._myLocationOverlay.enableCompass();
+
+	}
+
+	// @Override
+	protected void onPause() {
+
+		// if (!this._isLocationOverlayInit) return;
+		//this._myLocationOverlay.disableCompass();
+		//this._myLocationOverlay.disableMyLocation();
+		super.onPause();
+
+	}
+
+	private void downloadBuildingsForRegion(MapView map) {
+		/*
+		 * DownloadBuildingsOfRegion downloadBuildingsRegion = new
+		 * DownloadBuildingsOfRegion();
+		 * downloadBuildingsRegion.addListener(this);
+		 * downloadBuildingsRegion.execute(47.068771, 47.071735, 15.438386,
+		 * 15.441735);
+		 */
+
+		// filter is active -> No Region download
+		if (_isCategoryFilterActive)
+			return;
+
+		// return her if route is shown, dont download buildings of region
+		if (this._isShowingRoute)
+			return;
+
+		GeoPoint center = map.getMapCenter();
+
+		double cleanLatSpan = map.getLatitudeSpan();
+		double cleanLongSpan = map.getLongitudeSpan();
+
+		double latSpan = map.getLatitudeSpan() / 1000000.0;
+		double longSpan = map.getLongitudeSpan() / 1000000.0;
+
+		double latCenter = center.getLatitude();
+		double longCenter = center.getLongitude();
+
+		double minLat = latCenter - latSpan / 2.0;
+		double maxLat = latCenter + latSpan / 2.0;
+		double minLong = longCenter - longSpan / 2.0;
+		double maxLong = longCenter + longSpan / 2.0;
+
+		int i = 0;
+		i++;
+
+		DownloadBuildingsOfRegion downloadBuildingsRegion = new DownloadBuildingsOfRegion();
+		downloadBuildingsRegion.addListener(this);
+		downloadBuildingsRegion.execute(minLat, maxLat, minLong, maxLong);
+	}
+
+	private void downloadBuildingsOfCategory(String category) {
+		// TODO
+		DownloadBuildingsOfCategory downloadCategoryBuildings = new DownloadBuildingsOfCategory();
+		downloadCategoryBuildings.addListener(this);
+		downloadCategoryBuildings.execute(category);
+	}
+
+	private void removeAllOverlayItems() {
+
+		List<Overlay> mapOverlays = _map.getOverlays();
+		for (int i = 0; i < mapOverlays.size(); i++) {
+			String className = mapOverlays.get(i).getClass().getSimpleName();
+			Log.e("sClass", className);
+
+			if (className.equals("DefaultItemizedOverlay")) {
+				DefaultItemizedOverlay myOverlay = (DefaultItemizedOverlay) mapOverlays
+						.get(i);
+
+				if (myOverlay != null) {
+					mapOverlays.remove(i);
+					_map.invalidate();
+				}
+			}
+
+		}
+
+		// Overlay lineOverlays = this._map.getOverlayByKey("routeline");
+		//this._map.getOverlays().clear();
+		this._map.getOverlays().remove(this._lineOverlay);
+		_map.invalidate();
+
+	}
+
+	private void toogleUpdateMenu() {
+
+		this.updateMenu();
+
+		/*
+		 * if (this._isLocationOverlayInit) { this.updateMenu(); return; }
+		 */
+
+	}
+
+	private void updateMenu() {
+		// MenuItem locateMenuItem = this._menu.findItem(R.id.menu_locate);
+		// boolean isLocating = this._myLocationOverlay.isFollowing();
+		if (!_isLocating) {
+			
+			if (!this.checkIfLocationServicesEnabled()) return;
+
+			// locateMenuItem.setIcon(R.drawable.btn_locate_highlight);
+			_isLocating = true;
+			//_myLocationOverlay.enableCompass();
+			_myLocationOverlay.enableMyLocation();
+			_myLocationOverlay.setFollowing(_isLocating);
+
+		
+
+			Toast.makeText(_map.getContext(),
+					"Lokalisieren und verfolgen: EIN", Toast.LENGTH_SHORT)
+					.show();
+
+		} else {
+			// locateMenuItem.setIcon(R.drawable.btn_locate);
+
+			_isLocating = false;
+			_myLocationOverlay.disableMyLocation();
+			_myLocationOverlay.disableCompass();
+			_myLocationOverlay.setFollowing(_isLocating);
+
+			Toast.makeText(_map.getContext(),
+					"Lokalisieren und verfolgen: AUS", Toast.LENGTH_SHORT)
+					.show();
+		}
+
+		// _map.invalidate();
+	}
+
+	private boolean isNetworkAvailable() {
+		ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo activeNetworkInfo = connectivityManager
+				.getActiveNetworkInfo();
+		return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+	}
+
+	private void showNoNetworkDialog() {
+		new AlertDialog.Builder(_map.getContext())
+				.setTitle("Keine Internetverbindung")
+				.setMessage(
+						"Um diese App nutzen zu k�nnen, stellen Sie bitte eine Verbindung zum Internet her.")
+				.setPositiveButton("Weiter",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+									int which) {
+								// continue with delete
+							}
+						}).show();
+	}
+
+	@Override
+	public void downloadAllRoutesCompleted(Route[] routes) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void downloadRouteInformationCompleted(int route_id,
+			RouteInformation routeInformation) {
+		// TODO Auto-generated method stub
+
+		if (this._isShowingRoute) {
+			if (route_id == this._currentRouteID)
+				return;
+		}
+		this._currentRouteID = route_id;
+		this.addOverlaysWithRouteInformationArray(routeInformation);
+		this.showLineOverlay(routeInformation);
+	}
+
+	@Override
+	public void onClick(View arg0) {
+		// TODO Auto-generated method stub
+
+		LinearLayout ll = (LinearLayout) findViewById(R.id.buttonlayout);
+
+		ll.removeView(this._btnRoute);
+
+		LayoutParams param = new LinearLayout.LayoutParams(
+				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+		LinearLayout llmap = (LinearLayout) findViewById(R.id.map_layout);
+		// mapLayout.setLayoutParams(param);
+		View mapView = (View) this.findViewById(R.id.map);
+		llmap.setLayoutParams(param);
+
+		this._isShowingRoute = false;
+		this.downloadBuildingsForRegion(this._map);
+
+	}
+
+	@Override
+	public void downloadAllCategoriesCompleted(Category[] categories) {
+		// TODO Auto-generated method stub
+		try {
+			_categories = categories;
+			_isAllCategoriesLoaded = true;
+			fillCategoriesMenu(categories);
+			if (_isAllBuildingsLoaded) { // Wenn alle Kategorien und Gebäude
+											// geladen wurde wird erst
+											// initialisiert
+				this.initializeDataAfterStart();
+			}
+
+			if (!this.isNetworkAvailable())
+				Toast.makeText(_map.getContext(),
+						"Info: Es besteht keine Verbindung zum Internet!",
+						Toast.LENGTH_SHORT).show();
+		} catch (Exception ex) {
+
+		}
+	}
+
+	@Override
+	public void downloadBuildingsOfCategoryCompleted(
+			Building[] buildingsOfCategory) {
+		// TODO Auto-generated method stub
+		if (buildingsOfCategory != null)
+			addOverlaysWithBuildingArray(buildingsOfCategory);
+
+		if (!this.isNetworkAvailable())
+			Toast.makeText(_map.getContext(),
+					"Info: Es besteht keine Verbindung zum Internet!",
+					Toast.LENGTH_SHORT).show();
+
+	}
+	
+	public boolean checkIfLocationServicesEnabled(){
+		//provider variable code
+		/*String provider = Settings.Secure.getString(getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
+	
+		if (!provider.contains("gps")){ 
+			
+		}*/
+		
+		LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+		    if( !locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ) {
+		        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		        builder.setTitle("Fehler beim Lokalisieren");  // GPS not found
+		        builder.setMessage("Bitte aktivieren Sie die Standortdienste in den Systemeinstellungen! Wollen Sie dies jetzt tun?"); // Want to enable?
+		        builder.setPositiveButton("Ja", new DialogInterface.OnClickListener() {
+		            public void onClick(DialogInterface dialogInterface, int i) {
+		                startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+		            }
+		        });
+		        builder.setNegativeButton("Nein", null);
+		        builder.create().show();
+		        return false;
+		        
+		    }else
+		    	return true;
+	}
+}

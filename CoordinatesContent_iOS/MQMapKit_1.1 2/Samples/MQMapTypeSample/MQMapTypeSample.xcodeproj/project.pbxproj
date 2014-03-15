@@ -1,0 +1,350 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		098964D113D5F93200D52647 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 098964D013D5F93200D52647 /* UIKit.framework */; };
+		098964D313D5F93200D52647 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 098964D213D5F93200D52647 /* Foundation.framework */; };
+		098964D513D5F93200D52647 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 098964D413D5F93200D52647 /* CoreGraphics.framework */; };
+		098964FB13D5F97200D52647 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 098964FA13D5F97200D52647 /* libsqlite3.dylib */; };
+		0989652F13D605CF00D52647 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0989652E13D605CF00D52647 /* QuartzCore.framework */; };
+		0989653113D605E600D52647 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0989653013D605E600D52647 /* CoreLocation.framework */; };
+		09E7664A1430FFC200166ECE /* MQMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09E766491430FFC200166ECE /* MQMapKit.framework */; };
+		1885146714298F02005D74DB /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1885146614298F02005D74DB /* AddressBook.framework */; };
+		188514B8142A70E9005D74DB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 188514AB142A70E9005D74DB /* InfoPlist.strings */; };
+		188514B9142A70E9005D74DB /* MQMapTypeSampleViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188514AD142A70E9005D74DB /* MQMapTypeSampleViewController_iPad.xib */; };
+		188514BA142A70E9005D74DB /* MQMapTypeSampleViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188514AF142A70E9005D74DB /* MQMapTypeSampleViewController_iPhone.xib */; };
+		188514BB142A70E9005D74DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 188514B1142A70E9005D74DB /* main.m */; };
+		188514BD142A70E9005D74DB /* MQMapTypeSampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 188514B5142A70E9005D74DB /* MQMapTypeSampleAppDelegate.m */; };
+		188514BE142A70E9005D74DB /* MQMapTypeSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188514B7142A70E9005D74DB /* MQMapTypeSampleViewController.m */; };
+		E6CD362C1680E199001FF6CD /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E6CD362B1680E199001FF6CD /* libxml2.dylib */; };
+		E6CD362F1680E1B0001FF6CD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6CD362E1680E1B0001FF6CD /* SystemConfiguration.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		098964CC13D5F93200D52647 /* MQMapTypeSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MQMapTypeSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		098964D013D5F93200D52647 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		098964D213D5F93200D52647 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		098964D413D5F93200D52647 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		098964FA13D5F97200D52647 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		0989652E13D605CF00D52647 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0989653013D605E600D52647 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		09E766491430FFC200166ECE /* MQMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MQMapKit.framework; path = ../../MQMapKit.framework; sourceTree = "<group>"; };
+		1885146614298F02005D74DB /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		188514AC142A70E9005D74DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		188514AE142A70E9005D74DB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MQMapTypeSampleViewController_iPad.xib; sourceTree = "<group>"; };
+		188514B0142A70E9005D74DB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MQMapTypeSampleViewController_iPhone.xib; sourceTree = "<group>"; };
+		188514B1142A70E9005D74DB /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		188514B3142A70E9005D74DB /* MQMapTypeSample-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MQMapTypeSample-Prefix.pch"; sourceTree = "<group>"; };
+		188514B4142A70E9005D74DB /* MQMapTypeSampleAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQMapTypeSampleAppDelegate.h; sourceTree = "<group>"; };
+		188514B5142A70E9005D74DB /* MQMapTypeSampleAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQMapTypeSampleAppDelegate.m; sourceTree = "<group>"; };
+		188514B6142A70E9005D74DB /* MQMapTypeSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQMapTypeSampleViewController.h; sourceTree = "<group>"; };
+		188514B7142A70E9005D74DB /* MQMapTypeSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQMapTypeSampleViewController.m; sourceTree = "<group>"; };
+		188514BF142A71D0005D74DB /* MQMapTypeSample-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MQMapTypeSample-Info.plist"; sourceTree = "<group>"; };
+		E6CD362B1680E199001FF6CD /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		E6CD362E1680E1B0001FF6CD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		098964C913D5F93200D52647 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6CD362F1680E1B0001FF6CD /* SystemConfiguration.framework in Frameworks */,
+				E6CD362C1680E199001FF6CD /* libxml2.dylib in Frameworks */,
+				09E7664A1430FFC200166ECE /* MQMapKit.framework in Frameworks */,
+				1885146714298F02005D74DB /* AddressBook.framework in Frameworks */,
+				0989653113D605E600D52647 /* CoreLocation.framework in Frameworks */,
+				0989652F13D605CF00D52647 /* QuartzCore.framework in Frameworks */,
+				098964FB13D5F97200D52647 /* libsqlite3.dylib in Frameworks */,
+				098964D113D5F93200D52647 /* UIKit.framework in Frameworks */,
+				098964D313D5F93200D52647 /* Foundation.framework in Frameworks */,
+				098964D513D5F93200D52647 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		098964C113D5F93200D52647 = {
+			isa = PBXGroup;
+			children = (
+				E6CD362E1680E1B0001FF6CD /* SystemConfiguration.framework */,
+				E6CD362B1680E199001FF6CD /* libxml2.dylib */,
+				188514AA142A70E9005D74DB /* MQMapTypeSample */,
+				098964CF13D5F93200D52647 /* Frameworks */,
+				098964CD13D5F93200D52647 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		098964CD13D5F93200D52647 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				098964CC13D5F93200D52647 /* MQMapTypeSample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		098964CF13D5F93200D52647 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				09E766491430FFC200166ECE /* MQMapKit.framework */,
+				1885146614298F02005D74DB /* AddressBook.framework */,
+				0989653013D605E600D52647 /* CoreLocation.framework */,
+				0989652E13D605CF00D52647 /* QuartzCore.framework */,
+				098964FA13D5F97200D52647 /* libsqlite3.dylib */,
+				098964D013D5F93200D52647 /* UIKit.framework */,
+				098964D213D5F93200D52647 /* Foundation.framework */,
+				098964D413D5F93200D52647 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		188514AA142A70E9005D74DB /* MQMapTypeSample */ = {
+			isa = PBXGroup;
+			children = (
+				188514B4142A70E9005D74DB /* MQMapTypeSampleAppDelegate.h */,
+				188514B5142A70E9005D74DB /* MQMapTypeSampleAppDelegate.m */,
+				188514B6142A70E9005D74DB /* MQMapTypeSampleViewController.h */,
+				188514B7142A70E9005D74DB /* MQMapTypeSampleViewController.m */,
+				188514C6142A721A005D74DB /* Other Sources */,
+				188514C7142A7251005D74DB /* Nibs */,
+			);
+			path = MQMapTypeSample;
+			sourceTree = "<group>";
+		};
+		188514C6142A721A005D74DB /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				188514BF142A71D0005D74DB /* MQMapTypeSample-Info.plist */,
+				188514AB142A70E9005D74DB /* InfoPlist.strings */,
+				188514B1142A70E9005D74DB /* main.m */,
+				188514B3142A70E9005D74DB /* MQMapTypeSample-Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		188514C7142A7251005D74DB /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				188514AD142A70E9005D74DB /* MQMapTypeSampleViewController_iPad.xib */,
+				188514AF142A70E9005D74DB /* MQMapTypeSampleViewController_iPhone.xib */,
+			);
+			name = Nibs;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		098964CB13D5F93200D52647 /* MQMapTypeSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 098964ED13D5F93200D52647 /* Build configuration list for PBXNativeTarget "MQMapTypeSample" */;
+			buildPhases = (
+				098964C813D5F93200D52647 /* Sources */,
+				098964C913D5F93200D52647 /* Frameworks */,
+				098964CA13D5F93200D52647 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MQMapTypeSample;
+			productName = MQMapTypeSample;
+			productReference = 098964CC13D5F93200D52647 /* MQMapTypeSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		098964C313D5F93200D52647 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = MapQuest;
+			};
+			buildConfigurationList = 098964C613D5F93200D52647 /* Build configuration list for PBXProject "MQMapTypeSample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 098964C113D5F93200D52647;
+			productRefGroup = 098964CD13D5F93200D52647 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				098964CB13D5F93200D52647 /* MQMapTypeSample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		098964CA13D5F93200D52647 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				188514B8142A70E9005D74DB /* InfoPlist.strings in Resources */,
+				188514B9142A70E9005D74DB /* MQMapTypeSampleViewController_iPad.xib in Resources */,
+				188514BA142A70E9005D74DB /* MQMapTypeSampleViewController_iPhone.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		098964C813D5F93200D52647 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				188514BB142A70E9005D74DB /* main.m in Sources */,
+				188514BD142A70E9005D74DB /* MQMapTypeSampleAppDelegate.m in Sources */,
+				188514BE142A70E9005D74DB /* MQMapTypeSampleViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		188514AB142A70E9005D74DB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				188514AC142A70E9005D74DB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		188514AD142A70E9005D74DB /* MQMapTypeSampleViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				188514AE142A70E9005D74DB /* en */,
+			);
+			name = MQMapTypeSampleViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		188514AF142A70E9005D74DB /* MQMapTypeSampleViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				188514B0142A70E9005D74DB /* en */,
+			);
+			name = MQMapTypeSampleViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		098964EB13D5F93200D52647 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		098964EC13D5F93200D52647 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		098964EE13D5F93200D52647 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../..\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MQMapTypeSample/MQMapTypeSample-Prefix.pch";
+				INFOPLIST_FILE = "MQMapTypeSample/MQMapTypeSample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DENABLE_SDK_DEVELOPMENT=1";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = MQMapTypeSample;
+				USER_HEADER_SEARCH_PATHS = "../../**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		098964EF13D5F93200D52647 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../..\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MQMapTypeSample/MQMapTypeSample-Prefix.pch";
+				INFOPLIST_FILE = "MQMapTypeSample/MQMapTypeSample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = MQMapTypeSample;
+				USER_HEADER_SEARCH_PATHS = "../../**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		098964C613D5F93200D52647 /* Build configuration list for PBXProject "MQMapTypeSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				098964EB13D5F93200D52647 /* Debug */,
+				098964EC13D5F93200D52647 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		098964ED13D5F93200D52647 /* Build configuration list for PBXNativeTarget "MQMapTypeSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				098964EE13D5F93200D52647 /* Debug */,
+				098964EF13D5F93200D52647 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 098964C313D5F93200D52647 /* Project object */;
+}

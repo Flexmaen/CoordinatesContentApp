@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+ 
+    <item android:id="@+id/submenu_categories" android:title="Kategorien" android:icon="@drawable/ic_list"  android:showAsAction="ifRoom|withText"
+        android:orderInCategory="2" >
+        <menu>
+        <group android:id="@+id/categories" android:checkableBehavior="single">
+           
+        </group>   
+        </menu>
+    </item>
+    
+    <item android:id="@+id/submenu_main" android:title="Optionen" android:icon="@drawable/abs__ic_menu_moreoverflow_normal_holo_dark"
+        android:orderInCategory="2"  android:showAsAction="ifRoom|withText">
+        <menu>
+            <item android:id="@+id/mn_submenu_search" android:title="Suche" android:icon="@drawable/btn_search" />
+            <item android:id="@+id/mn_submenu_route" android:title="Routen" android:icon="@drawable/btn_route"/>
+            <item android:id="@+id/mn_submenu_locate" android:title="Lokalisieren" android:icon="@drawable/btn_locate"/>
+            <item android:id="@+id/mn_submenu_info" android:title="Impressum" android:icon="@drawable/btn_info"/>
+        </menu>
+    </item>
+    
+
+
+</menu>

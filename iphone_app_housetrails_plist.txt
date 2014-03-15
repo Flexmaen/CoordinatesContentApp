@@ -1,0 +1,241 @@
+==================================================================================================================
+iPhone plist-Feed
+==================================================================================================================
+This list describes examples for queries done by the app and expected output from server.
+Data can be other than buildings of course.
+==================================================================================================================
+
+
+==================================================================================================================
+List all Object/Liste aller Objekte:
+------------------------------------------------------------------------------------------------------------------
+action=getAllBuildings 
+------------------------------------------------------------------------------------------------------------------
+output: 
+<plist version='1.0'> <dict><key>0</key><dict><key>id</key> <string>-701379922</string> <key>title</key><string>Am Damm 1</string> <key>latitude</key><string>47.077038888889</string> <key>longitude</key><string>15.428302777778</string> </dict><key>1</key> <dict><key>id</key><string>1329109780</string> <key>title</key><string>Am Damm 2</string> <key>latitude</key><string>47.077375</string> <key>longitude</key><string>15.428327777778</string> </dict></dict></plist>
+==================================================================================================================
+
+
+==================================================================================================================
+Buildings with a region / Objekte innerhalb einer Region:
+(can display buildings on the displayed area)
+------------------------------------------------------------------------------------------------------------------
+action=getBuildingsOfRegion&min_lat=47.056265666667&max_lat=47.076268666667&min_lon g=15.453744444444&max_long=15.453944444444 
+------------------------------------------------------------------------------------------------------------------
+output: 
+<plist version='1.0'><dict><key>0</key> 
+<dict><key>id</key> 
+<string>-2146834024</string> 
+<key>title</key><string>Strassoldogasse 4</string> 
+<key>latitude</key><string>47.076266666667</string> 
+<key>longitude</key><string>15.453844444444</string> 
+</dict><key>1</key> 
+<dict><key>id</key> 
+<string>-2066798491</string> 
+<key>title</key><string>Morellenfeldgasse 30</string> 
+<key>latitude</key><string>47.070344444444</string> 
+<key>longitude</key><string>15.453916666667</string> 
+</dict> 
+
+==================================================================================================================
+
+
+==================================================================================================================
+Information to a specific object / Information zu einem bestimmten Objekt
+(in this case containing three scrollpages, you might use it with only one section too)
+------------------------------------------------------------------------------------------------------------------
+action=getBuildingInformation&bid=1583184515 
+------------------------------------------------------------------------------------------------------------------
+output: 
+<plist version='1.0'><dict><key>0</key> 
+<dict> 
+<key>title</key> 
+<string>Kunsthaus</string> 
+<key>text</key> 
+<string>Neubau des Grazer Kunsthauses nach den Entwürfen von Peter Cook und Colin Fournier, 
+der die Süd- und Ostfassade des Eisernen Hauses integriert. Siehe 
+[[http://de.wikipedia.org/wiki/Kunsthaus_Graz Wikipedia]].</string> 
+<key>images</key><array><dict> 
+<key>image</key> 
+<string>communication/images/graz_kunsthaus_vom_schlossberg_20061126.jpg</string> 
+<key>description</key> 
+<string>Kunsthaus vom Schlossberg</string> 
+
+</dict><dict><key>image</key> 
+<string>communication/images/kunsthaus_graz_nacht_medienfassade.jpg</string> 
+<key>description</key> 
+<string>Kunsthaus Medienfassade</string> 
+</dict></array></dict> 
+<key>1</key><dict> 
+<key>title</key> 
+<string>Eisernes Haus</string> 
+<key>text</key> 
+<string>Das "Eiserne Haus" wurde 1847-1848 anstelle von fünf Bürgerhäusern nach Plänen von 
+Josef Benedikt Withalm errichtet. Das im Erdgeschoss auf Sandsteinpfeilern ruhende Obergeschoss 
+ist in Skelettbauweise aus Gusseisen und Glas ausgeführt. Jener für seine Zeit in Bezug auf 
+Konstruktion, Material und Form innovative und revolutionäre Bau stellt als einziges in der 
+Steiermark erhaltenes Beispiel der Anwendung von Gusseisen im Hochbau ein technisches 
+Denkmal dar. Trotz wesentlicher Umbauten im 19. und 20. Jh. ist zumindest das äußere 
+Erscheinungsbild der aus konstruktiven und ornamentalen Gusseisenelementen bestehenden 
+Fassade erhalten geblieben. Genaueres in der [[http://de.wikipedia.org/wiki/Eisernes_Haus_(Graz) 
+Wikipedia]]</string> 
+<key>images</key><array><dict> 
+<key>image</key> 
+<string>communication/images/eisernes_haus.jpg</string> 
+<key>description</key> 
+<string>ursprüngliches Eisernes Haus</string> 
+</dict> 
+<dict> 
+<key>image</key> 
+<string>communication/images/franz_karl_bruecke.jpg</string> 
+<key>description</key> 
+<string>Eisernes Haus nach Umbauten</string> 
+</dict></array></dict><key>2</key><dict> 
+<key>title</key><string>Info:</string> 
+<key>text</key> 
+<string>8020 Graz 
+Steiermark 
+Österreich 
+47.071174084811, 15.434187054634 
+mehr unter http://baugeschichte.at</string> 
+<key>images</key><array><dict> 
+<key>image</key><string>skins/common/images/logo_baugeschichte.png</string> 
+<key>description</key> 
+<string>www.baugeschichte.at</string> 
+</dict></array></dict></dict></plist> 
+
+==================================================================================================================
+
+
+==================================================================================================================
+Infomation to a specific route / Informationen zu einer bestimmten Route
+(shows objects linked in this route and connecting routepoints)
+------------------------------------------------------------------------------------------------------------------
+action=getRouteInformation&rid=-1031886265 
+------------------------------------------------------------------------------------------------------------------
+output: 
+<plist version='1.0'><dict><key>0</key> 
+<dict> 
+<key>id</key><string>509669626</string> 
+<key>title</key><string>Fellingergasse 14</string> 
+<key>latitude</key><string>47.074897222222</string> 
+<key>longitude</key><string>15.431833333333</string> 
+
+</dict><key>1</key> 
+<dict><key>id</key><string>239312301</string> 
+<key>title</key><string>Lendplatz 21</string> 
+<key>latitude</key><string>47.076425</string> 
+<key>longitude</key><string>15.428738888889</string> 
+</dict><key>2</key><dict><key>id</key><string>-531759999</string> 
+<key>title</key><string>Lendplatz 23</string> 
+<key>latitude</key><string>47.076822222222</string> 
+<key>longitude</key><string>15.428377777778</string> 
+</dict><key>3</key><dict><key>id</key><string>-856748496</string> 
+<key>title</key><string>Sigmundstadl 1</string> 
+<key>latitude</key><string>47.074380555556</string> 
+<key>longitude</key><string>15.429208333333</string> 
+</dict><key>4</key> 
+<dict><key>id</key><string>-214785738</string> 
+<key>title</key><string>Kinkgasse 2</string> 
+<key>latitude</key><string>47.073855555556</string> 
+<key>longitude</key><string>15.430541666667</string> 
+</dict><key>5</key> 
+<dict><key>id</key><string>line</string> 
+<key>points</key><dict><key>0</key> 
+<dict><key>point_latitude</key><string>47.073792</string> 
+<key>point_longitude</key><string>15.430488</string> 
+</dict><key>1</key><dict> 
+<key>point_latitude</key><string>47.073776</string> 
+<key>point_longitude</key><string>15.429513</string> 
+</dict><key>2</key> 
+<dict><key>point_latitude</key><string>47.074612</string> 
+<key>point_longitude</key><string>15.42927</string> 
+</dict><key>3</key> 
+<dict><key>point_latitude</key><string>47.074558</string> 
+<key>point_longitude</key><string>15.429358</string> 
+</dict></dict></dict></dict></plist> 
+
+==================================================================================================================
+
+
+==================================================================================================================
+List all routes / Liste aller Routen
+------------------------------------------------------------------------------------------------------------------
+action=getAllRoutes 
+------------------------------------------------------------------------------------------------------------------
+output: 
+<plist version='1.0'><dict><key>0</key> 
+<dict><key>id</key><string>-1031886265</string> 
+<key>title</key><string>Lend-Zustand 2011 klein (Graz)</string> 
+<key>description</key>
+<string>Die kleinere Runde des Lend-Zustand Rundgangs, anlÃ¤sslich des Lendwirbels 
+2011.</string> 
+</dict></dict></plist> 
+
+==================================================================================================================
+
+
+==================================================================================================================
+List all categories / Liste aller Kategorien
+------------------------------------------------------------------------------------------------------------------
+action=getAllCategories 
+------------------------------------------------------------------------------------------------------------------
+output: 
+<plist version='1.0'><dict> 
+<key>0</key><string>Ab 2000 abgerissene Gebäude</string> 
+<key>1</key><string>Ab 2000 restauriert</string> 
+<key>2</key><string>Aktuell</string> 
+
+<key>3</key><string>Bis 2000 abgerissene Gebäude</string> 
+<key>4</key><string>Denkmalschutz</string> 
+<key>5</key><string>Gedenkstätten</string> 
+<key>6</key><string>Geschichte</string> 
+<key>7</key><string>Historische Ansicht vorhanden</string> 
+<key>8</key><string>Leerstand</string> 
+<key>9</key><string>Stadttore</string> 
+</dict> 
+</plist> 
+
+==================================================================================================================
+
+
+==================================================================================================================
+Objects of selected category / Objekte zu einer Kategorie
+------------------------------------------------------------------------------------------------------------------
+action=getBuildingsOfCategory&category=denkmalschutz 
+------------------------------------------------------------------------------------------------------------------
+output: 
+<plist version='1.0'><dict><key>0</key> 
+<dict> 
+<key>id</key><string>2118739146</string> 
+<key>title</key><string>Babenbergerstraße 107</string> 
+<key>latitude</key><string>47.079986111111</string> 
+<key>longitude</key><string>15.417497222222</string> 
+</dict><key>1</key> 
+<dict><key>id</key><string>-176756312</string> 
+<key>title</key><string>Grenadiergasse 14 (Graz)</string> 
+<key>latitude</key><string>47.0686639</string> 
+<key>longitude</key><string>15.4304223</string> 
+</dict><key>2</key> 
+<dict><key>id</key><string>1181264502</string> 
+<key>title</key><string>Kadettengasse 19</string> 
+<key>latitude</key><string>47.037308630673</string> 
+<key>longitude</key><string>15.457195043564</string> 
+</dict><key>3</key><dict><key>id</key> 
+<string>-1919938389</string> 
+<key>title</key><string>Kadettengasse 23</string> 
+<key>latitude</key><string>47.036744444444</string> 
+<key>longitude</key><string>15.456908333333</string> 
+</dict><key>4</key> 
+<dict><key>id</key> 
+<string>1953237</string> 
+<key>title</key><string>Leonhardstraße 19</string> 
+<key>latitude</key><string>47.072288888889</string> 
+<key>longitude</key><string>15.450541666667</string> 
+</dict><key>5</key> 
+<dict><key>id</key><string>549292334</string> 
+<key>title</key><string>Museumsplatz 1 (Wien)</string> 
+<key>latitude</key><string>48.2034986</string> 
+<key>longitude</key><string>16.3591175</string> 
+</dict></dict></plist>
+==================================================================================================================

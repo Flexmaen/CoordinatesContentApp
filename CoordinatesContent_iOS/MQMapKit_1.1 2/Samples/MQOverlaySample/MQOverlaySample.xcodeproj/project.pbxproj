@@ -1,0 +1,753 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03492E45140EE802007C2BB9 /* MQMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03492E44140EE802007C2BB9 /* MQMapKit.framework */; };
+		0386BF2113F3B684006AF0CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0386BF2013F3B684006AF0CA /* UIKit.framework */; };
+		0386BF2313F3B684006AF0CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0386BF2213F3B684006AF0CA /* Foundation.framework */; };
+		0386BF2B13F3B684006AF0CA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0386BF2913F3B684006AF0CA /* InfoPlist.strings */; };
+		0386BF2E13F3B684006AF0CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0386BF2D13F3B684006AF0CA /* main.m */; };
+		0386BF3113F3B684006AF0CA /* MQOverlaySampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0386BF3013F3B684006AF0CA /* MQOverlaySampleAppDelegate.m */; };
+		0386BF3413F3B684006AF0CA /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0386BF3213F3B684006AF0CA /* MainWindow.xib */; };
+		0386BF3713F3B684006AF0CA /* MQOverlaySampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0386BF3613F3B684006AF0CA /* MQOverlaySampleViewController.m */; };
+		0386BF3A13F3B684006AF0CA /* MQOverlaySampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0386BF3813F3B684006AF0CA /* MQOverlaySampleViewController.xib */; };
+		0386BF4113F3B684006AF0CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0386BF2013F3B684006AF0CA /* UIKit.framework */; };
+		0386BF4213F3B684006AF0CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0386BF2213F3B684006AF0CA /* Foundation.framework */; };
+		0386BF4B13F3B684006AF0CA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0386BF4913F3B684006AF0CA /* InfoPlist.strings */; };
+		0386BF4E13F3B684006AF0CA /* MQOverlaySampleTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 0386BF4D13F3B684006AF0CA /* MQOverlaySampleTests.h */; };
+		0386BF5013F3B684006AF0CA /* MQOverlaySampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0386BF4F13F3B684006AF0CA /* MQOverlaySampleTests.m */; };
+		0386BF5C13F3C17F006AF0CA /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0386BF5B13F3C17F006AF0CA /* libsqlite3.dylib */; };
+		0386BF5E13F3C1A0006AF0CA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0386BF5D13F3C1A0006AF0CA /* CoreLocation.framework */; };
+		0386BF6313F3C1EE006AF0CA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0386BF6213F3C1EE006AF0CA /* QuartzCore.framework */; };
+		0386BF6513F3C1FD006AF0CA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0386BF6413F3C1FD006AF0CA /* CoreGraphics.framework */; };
+		09942620143102F3009FEFBD /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0994261F143102F3009FEFBD /* AddressBook.framework */; };
+		B1A14DCC161E3AD200EBA36C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0386BF2D13F3B684006AF0CA /* main.m */; };
+		B1A14DCD161E3AD200EBA36C /* MQOverlaySampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0386BF3013F3B684006AF0CA /* MQOverlaySampleAppDelegate.m */; };
+		B1A14DCE161E3AD200EBA36C /* MQOverlaySampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0386BF3613F3B684006AF0CA /* MQOverlaySampleViewController.m */; };
+		B1A14DD0161E3AD200EBA36C /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0994261F143102F3009FEFBD /* AddressBook.framework */; };
+		B1A14DD1161E3AD200EBA36C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0386BF6413F3C1FD006AF0CA /* CoreGraphics.framework */; };
+		B1A14DD2161E3AD200EBA36C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0386BF6213F3C1EE006AF0CA /* QuartzCore.framework */; };
+		B1A14DD3161E3AD200EBA36C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0386BF5D13F3C1A0006AF0CA /* CoreLocation.framework */; };
+		B1A14DD4161E3AD200EBA36C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0386BF5B13F3C17F006AF0CA /* libsqlite3.dylib */; };
+		B1A14DD5161E3AD200EBA36C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0386BF2013F3B684006AF0CA /* UIKit.framework */; };
+		B1A14DD6161E3AD200EBA36C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0386BF2213F3B684006AF0CA /* Foundation.framework */; };
+		B1A14DD9161E3AD200EBA36C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0386BF2913F3B684006AF0CA /* InfoPlist.strings */; };
+		B1A14DDA161E3AD200EBA36C /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0386BF3213F3B684006AF0CA /* MainWindow.xib */; };
+		B1A14DDB161E3AD200EBA36C /* MQOverlaySampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0386BF3813F3B684006AF0CA /* MQOverlaySampleViewController.xib */; };
+		B1A14DDC161E3AD200EBA36C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E0FBC7161E27DE00F4CDB7 /* Default@2x.png */; };
+		B1A14DDD161E3AD200EBA36C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E0FBCA161E27E200F4CDB7 /* Default.png */; };
+		B1A14DDE161E3AD200EBA36C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E0FBCC161E27E500F4CDB7 /* Default-568h@2x.png */; };
+		B1A14E2A161E438000EBA36C /* libmq_ios_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A14E18161E422300EBA36C /* libmq_ios_sdk.a */; };
+		B1DB3C1A161F25B0009F13E8 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B1DB3C17161F25B0009F13E8 /* libxml2.dylib */; };
+		B1DB3C1B161F25B0009F13E8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1DB3C18161F25B0009F13E8 /* SystemConfiguration.framework */; };
+		B1DB3C1E161F25D1009F13E8 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B1DB3C17161F25B0009F13E8 /* libxml2.dylib */; };
+		B1DB3C1F161F25D4009F13E8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1DB3C18161F25B0009F13E8 /* SystemConfiguration.framework */; };
+		B1E0FBC8161E27DE00F4CDB7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E0FBC7161E27DE00F4CDB7 /* Default@2x.png */; };
+		B1E0FBCB161E27E200F4CDB7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E0FBCA161E27E200F4CDB7 /* Default.png */; };
+		B1E0FBCD161E27E500F4CDB7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E0FBCC161E27E500F4CDB7 /* Default-568h@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0386BF4413F3B684006AF0CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0386BF1313F3B684006AF0CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0386BF1B13F3B684006AF0CA;
+			remoteInfo = MQOverlaySample;
+		};
+		B1A14E17161E422300EBA36C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1A14E0E161E422300EBA36C /* mq_ios_sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = mq_ios_sdk;
+		};
+		B1A14E19161E422300EBA36C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1A14E0E161E422300EBA36C /* mq_ios_sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 09A55A2313E32D9D00AC4433;
+			remoteInfo = SDKUnitTests;
+		};
+		B1A14E1B161E422300EBA36C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1A14E0E161E422300EBA36C /* mq_ios_sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D7A3C213159B746A00BB623E;
+			remoteInfo = mq_ios_sdk_private;
+		};
+		B1A14E20161E428100EBA36C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1A14E0E161E422300EBA36C /* mq_ios_sdk.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = mq_ios_sdk;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03492E44140EE802007C2BB9 /* MQMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MQMapKit.framework; path = ../../MQMapKit.framework; sourceTree = "<group>"; };
+		0386BF1C13F3B684006AF0CA /* MQOverlaySample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MQOverlaySample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0386BF2013F3B684006AF0CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		0386BF2213F3B684006AF0CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0386BF2813F3B684006AF0CA /* MQOverlaySample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MQOverlaySample-Info.plist"; sourceTree = "<group>"; };
+		0386BF2A13F3B684006AF0CA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0386BF2C13F3B684006AF0CA /* MQOverlaySample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MQOverlaySample-Prefix.pch"; sourceTree = "<group>"; };
+		0386BF2D13F3B684006AF0CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0386BF2F13F3B684006AF0CA /* MQOverlaySampleAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MQOverlaySampleAppDelegate.h; sourceTree = "<group>"; };
+		0386BF3013F3B684006AF0CA /* MQOverlaySampleAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MQOverlaySampleAppDelegate.m; sourceTree = "<group>"; };
+		0386BF3313F3B684006AF0CA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		0386BF3513F3B684006AF0CA /* MQOverlaySampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MQOverlaySampleViewController.h; sourceTree = "<group>"; };
+		0386BF3613F3B684006AF0CA /* MQOverlaySampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MQOverlaySampleViewController.m; sourceTree = "<group>"; };
+		0386BF3913F3B684006AF0CA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MQOverlaySampleViewController.xib; sourceTree = "<group>"; };
+		0386BF4013F3B684006AF0CA /* MQOverlaySampleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MQOverlaySampleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0386BF4813F3B684006AF0CA /* MQOverlaySampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MQOverlaySampleTests-Info.plist"; sourceTree = "<group>"; };
+		0386BF4A13F3B684006AF0CA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0386BF4C13F3B684006AF0CA /* MQOverlaySampleTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MQOverlaySampleTests-Prefix.pch"; sourceTree = "<group>"; };
+		0386BF4D13F3B684006AF0CA /* MQOverlaySampleTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MQOverlaySampleTests.h; sourceTree = "<group>"; };
+		0386BF4F13F3B684006AF0CA /* MQOverlaySampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MQOverlaySampleTests.m; sourceTree = "<group>"; };
+		0386BF5B13F3C17F006AF0CA /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		0386BF5D13F3C1A0006AF0CA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		0386BF6213F3C1EE006AF0CA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0386BF6413F3C1FD006AF0CA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0994261F143102F3009FEFBD /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		B1A14DE2161E3AD200EBA36C /* MQOverlaySampleSDKSource.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MQOverlaySampleSDKSource.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1A14DE4161E3AD200EBA36C /* MQOverlaySampleSDKSource-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MQOverlaySampleSDKSource-Info.plist"; path = "/Users/heinrich953/projects/mapquest-mobile-ios-sdk/Samples/MQOverlaySample/MQOverlaySampleSDKSource-Info.plist"; sourceTree = "<absolute>"; };
+		B1A14E0E161E422300EBA36C /* mq_ios_sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = mq_ios_sdk.xcodeproj; path = ../../mq_ios_sdk.xcodeproj; sourceTree = "<group>"; };
+		B1A14E28161E434600EBA36C /* MQMapKit */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = MQMapKit; path = ../../MQMapKit.framework/MQMapKit; sourceTree = "<group>"; };
+		B1DB3C17161F25B0009F13E8 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		B1DB3C18161F25B0009F13E8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B1E0FBC7161E27DE00F4CDB7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		B1E0FBCA161E27E200F4CDB7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		B1E0FBCC161E27E500F4CDB7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0386BF1913F3B684006AF0CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09942620143102F3009FEFBD /* AddressBook.framework in Frameworks */,
+				0386BF6513F3C1FD006AF0CA /* CoreGraphics.framework in Frameworks */,
+				0386BF6313F3C1EE006AF0CA /* QuartzCore.framework in Frameworks */,
+				0386BF5E13F3C1A0006AF0CA /* CoreLocation.framework in Frameworks */,
+				0386BF5C13F3C17F006AF0CA /* libsqlite3.dylib in Frameworks */,
+				0386BF2113F3B684006AF0CA /* UIKit.framework in Frameworks */,
+				0386BF2313F3B684006AF0CA /* Foundation.framework in Frameworks */,
+				03492E45140EE802007C2BB9 /* MQMapKit.framework in Frameworks */,
+				B1DB3C1E161F25D1009F13E8 /* libxml2.dylib in Frameworks */,
+				B1DB3C1F161F25D4009F13E8 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0386BF3C13F3B684006AF0CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0386BF4113F3B684006AF0CA /* UIKit.framework in Frameworks */,
+				0386BF4213F3B684006AF0CA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1A14DCF161E3AD200EBA36C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1A14DD0161E3AD200EBA36C /* AddressBook.framework in Frameworks */,
+				B1A14DD1161E3AD200EBA36C /* CoreGraphics.framework in Frameworks */,
+				B1A14DD2161E3AD200EBA36C /* QuartzCore.framework in Frameworks */,
+				B1A14DD3161E3AD200EBA36C /* CoreLocation.framework in Frameworks */,
+				B1A14DD4161E3AD200EBA36C /* libsqlite3.dylib in Frameworks */,
+				B1A14DD5161E3AD200EBA36C /* UIKit.framework in Frameworks */,
+				B1A14E2A161E438000EBA36C /* libmq_ios_sdk.a in Frameworks */,
+				B1A14DD6161E3AD200EBA36C /* Foundation.framework in Frameworks */,
+				B1DB3C1A161F25B0009F13E8 /* libxml2.dylib in Frameworks */,
+				B1DB3C1B161F25B0009F13E8 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0386BF1113F3B684006AF0CA = {
+			isa = PBXGroup;
+			children = (
+				B1A14E28161E434600EBA36C /* MQMapKit */,
+				B1E0FBCC161E27E500F4CDB7 /* Default-568h@2x.png */,
+				B1E0FBCA161E27E200F4CDB7 /* Default.png */,
+				B1E0FBC7161E27DE00F4CDB7 /* Default@2x.png */,
+				0386BF2613F3B684006AF0CA /* MQOverlaySample */,
+				0386BF4613F3B684006AF0CA /* MQOverlaySampleTests */,
+				0386BF1F13F3B684006AF0CA /* Frameworks */,
+				0386BF1D13F3B684006AF0CA /* Products */,
+				B1A14E0E161E422300EBA36C /* mq_ios_sdk.xcodeproj */,
+			);
+			sourceTree = "<group>";
+		};
+		0386BF1D13F3B684006AF0CA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0386BF1C13F3B684006AF0CA /* MQOverlaySample.app */,
+				0386BF4013F3B684006AF0CA /* MQOverlaySampleTests.octest */,
+				B1A14DE2161E3AD200EBA36C /* MQOverlaySampleSDKSource.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0386BF1F13F3B684006AF0CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B1DB3C1D161F25C5009F13E8 /* MQMapKit required */,
+				0386BF6413F3C1FD006AF0CA /* CoreGraphics.framework */,
+				0386BF5D13F3C1A0006AF0CA /* CoreLocation.framework */,
+				0386BF2213F3B684006AF0CA /* Foundation.framework */,
+				03492E44140EE802007C2BB9 /* MQMapKit.framework */,
+				0386BF6213F3C1EE006AF0CA /* QuartzCore.framework */,
+				0386BF2013F3B684006AF0CA /* UIKit.framework */,
+				0386BF5B13F3C17F006AF0CA /* libsqlite3.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0386BF2613F3B684006AF0CA /* MQOverlaySample */ = {
+			isa = PBXGroup;
+			children = (
+				0386BF2F13F3B684006AF0CA /* MQOverlaySampleAppDelegate.h */,
+				0386BF3013F3B684006AF0CA /* MQOverlaySampleAppDelegate.m */,
+				0386BF3213F3B684006AF0CA /* MainWindow.xib */,
+				0386BF3513F3B684006AF0CA /* MQOverlaySampleViewController.h */,
+				0386BF3613F3B684006AF0CA /* MQOverlaySampleViewController.m */,
+				0386BF3813F3B684006AF0CA /* MQOverlaySampleViewController.xib */,
+				0386BF2713F3B684006AF0CA /* Supporting Files */,
+			);
+			path = MQOverlaySample;
+			sourceTree = "<group>";
+		};
+		0386BF2713F3B684006AF0CA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B1A14DE4161E3AD200EBA36C /* MQOverlaySampleSDKSource-Info.plist */,
+				0386BF2813F3B684006AF0CA /* MQOverlaySample-Info.plist */,
+				0386BF2913F3B684006AF0CA /* InfoPlist.strings */,
+				0386BF2C13F3B684006AF0CA /* MQOverlaySample-Prefix.pch */,
+				0386BF2D13F3B684006AF0CA /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0386BF4613F3B684006AF0CA /* MQOverlaySampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				0386BF4D13F3B684006AF0CA /* MQOverlaySampleTests.h */,
+				0386BF4F13F3B684006AF0CA /* MQOverlaySampleTests.m */,
+				0386BF4713F3B684006AF0CA /* Supporting Files */,
+			);
+			path = MQOverlaySampleTests;
+			sourceTree = "<group>";
+		};
+		0386BF4713F3B684006AF0CA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0386BF4813F3B684006AF0CA /* MQOverlaySampleTests-Info.plist */,
+				0386BF4913F3B684006AF0CA /* InfoPlist.strings */,
+				0386BF4C13F3B684006AF0CA /* MQOverlaySampleTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B1A14E0F161E422300EBA36C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B1A14E18161E422300EBA36C /* libmq_ios_sdk.a */,
+				B1A14E1A161E422300EBA36C /* SDKUnitTests.octest */,
+				B1A14E1C161E422300EBA36C /* libmq_ios_sdk_private.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B1DB3C1D161F25C5009F13E8 /* MQMapKit required */ = {
+			isa = PBXGroup;
+			children = (
+				0994261F143102F3009FEFBD /* AddressBook.framework */,
+				B1DB3C17161F25B0009F13E8 /* libxml2.dylib */,
+				B1DB3C18161F25B0009F13E8 /* SystemConfiguration.framework */,
+			);
+			name = "MQMapKit required";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0386BF1B13F3B684006AF0CA /* MQOverlaySample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0386BF5313F3B684006AF0CA /* Build configuration list for PBXNativeTarget "MQOverlaySample" */;
+			buildPhases = (
+				0386BF1813F3B684006AF0CA /* Sources */,
+				0386BF1913F3B684006AF0CA /* Frameworks */,
+				0386BF1A13F3B684006AF0CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MQOverlaySample;
+			productName = MQOverlaySample;
+			productReference = 0386BF1C13F3B684006AF0CA /* MQOverlaySample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0386BF3F13F3B684006AF0CA /* MQOverlaySampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0386BF5613F3B684006AF0CA /* Build configuration list for PBXNativeTarget "MQOverlaySampleTests" */;
+			buildPhases = (
+				0386BF3B13F3B684006AF0CA /* Sources */,
+				0386BF3C13F3B684006AF0CA /* Frameworks */,
+				0386BF3D13F3B684006AF0CA /* Resources */,
+				0386BF3E13F3B684006AF0CA /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0386BF4513F3B684006AF0CA /* PBXTargetDependency */,
+			);
+			name = MQOverlaySampleTests;
+			productName = MQOverlaySampleTests;
+			productReference = 0386BF4013F3B684006AF0CA /* MQOverlaySampleTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		B1A14DCA161E3AD200EBA36C /* MQOverlaySampleSDKSource */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1A14DDF161E3AD200EBA36C /* Build configuration list for PBXNativeTarget "MQOverlaySampleSDKSource" */;
+			buildPhases = (
+				B1A14DCB161E3AD200EBA36C /* Sources */,
+				B1A14DCF161E3AD200EBA36C /* Frameworks */,
+				B1A14DD8161E3AD200EBA36C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B1A14E21161E428100EBA36C /* PBXTargetDependency */,
+			);
+			name = MQOverlaySampleSDKSource;
+			productName = MQOverlaySample;
+			productReference = B1A14DE2161E3AD200EBA36C /* MQOverlaySampleSDKSource.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0386BF1313F3B684006AF0CA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+			};
+			buildConfigurationList = 0386BF1613F3B684006AF0CA /* Build configuration list for PBXProject "MQOverlaySample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0386BF1113F3B684006AF0CA;
+			productRefGroup = 0386BF1D13F3B684006AF0CA /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B1A14E0F161E422300EBA36C /* Products */;
+					ProjectRef = B1A14E0E161E422300EBA36C /* mq_ios_sdk.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				0386BF1B13F3B684006AF0CA /* MQOverlaySample */,
+				B1A14DCA161E3AD200EBA36C /* MQOverlaySampleSDKSource */,
+				0386BF3F13F3B684006AF0CA /* MQOverlaySampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B1A14E18161E422300EBA36C /* libmq_ios_sdk.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libmq_ios_sdk.a;
+			remoteRef = B1A14E17161E422300EBA36C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B1A14E1A161E422300EBA36C /* SDKUnitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SDKUnitTests.octest;
+			remoteRef = B1A14E19161E422300EBA36C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B1A14E1C161E422300EBA36C /* libmq_ios_sdk_private.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libmq_ios_sdk_private.a;
+			remoteRef = B1A14E1B161E422300EBA36C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0386BF1A13F3B684006AF0CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0386BF2B13F3B684006AF0CA /* InfoPlist.strings in Resources */,
+				0386BF3413F3B684006AF0CA /* MainWindow.xib in Resources */,
+				0386BF3A13F3B684006AF0CA /* MQOverlaySampleViewController.xib in Resources */,
+				B1E0FBC8161E27DE00F4CDB7 /* Default@2x.png in Resources */,
+				B1E0FBCB161E27E200F4CDB7 /* Default.png in Resources */,
+				B1E0FBCD161E27E500F4CDB7 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0386BF3D13F3B684006AF0CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0386BF4B13F3B684006AF0CA /* InfoPlist.strings in Resources */,
+				0386BF4E13F3B684006AF0CA /* MQOverlaySampleTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1A14DD8161E3AD200EBA36C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1A14DD9161E3AD200EBA36C /* InfoPlist.strings in Resources */,
+				B1A14DDA161E3AD200EBA36C /* MainWindow.xib in Resources */,
+				B1A14DDB161E3AD200EBA36C /* MQOverlaySampleViewController.xib in Resources */,
+				B1A14DDC161E3AD200EBA36C /* Default@2x.png in Resources */,
+				B1A14DDD161E3AD200EBA36C /* Default.png in Resources */,
+				B1A14DDE161E3AD200EBA36C /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0386BF3E13F3B684006AF0CA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0386BF1813F3B684006AF0CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0386BF2E13F3B684006AF0CA /* main.m in Sources */,
+				0386BF3113F3B684006AF0CA /* MQOverlaySampleAppDelegate.m in Sources */,
+				0386BF3713F3B684006AF0CA /* MQOverlaySampleViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0386BF3B13F3B684006AF0CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0386BF5013F3B684006AF0CA /* MQOverlaySampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1A14DCB161E3AD200EBA36C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1A14DCC161E3AD200EBA36C /* main.m in Sources */,
+				B1A14DCD161E3AD200EBA36C /* MQOverlaySampleAppDelegate.m in Sources */,
+				B1A14DCE161E3AD200EBA36C /* MQOverlaySampleViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0386BF4513F3B684006AF0CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0386BF1B13F3B684006AF0CA /* MQOverlaySample */;
+			targetProxy = 0386BF4413F3B684006AF0CA /* PBXContainerItemProxy */;
+		};
+		B1A14E21161E428100EBA36C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = mq_ios_sdk;
+			targetProxy = B1A14E20161E428100EBA36C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0386BF2913F3B684006AF0CA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0386BF2A13F3B684006AF0CA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0386BF3213F3B684006AF0CA /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0386BF3313F3B684006AF0CA /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		0386BF3813F3B684006AF0CA /* MQOverlaySampleViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0386BF3913F3B684006AF0CA /* en */,
+			);
+			name = MQOverlaySampleViewController.xib;
+			sourceTree = "<group>";
+		};
+		0386BF4913F3B684006AF0CA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0386BF4A13F3B684006AF0CA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0386BF5113F3B684006AF0CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "-ObjC";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		0386BF5213F3B684006AF0CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "-ObjC";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		0386BF5413F3B684006AF0CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../build\"",
+					"\"$(SRCROOT)/../..\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MQOverlaySample/MQOverlaySample-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "MQOverlaySample/MQOverlaySample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		0386BF5513F3B684006AF0CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../build\"",
+					"\"$(SRCROOT)/../..\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MQOverlaySample/MQOverlaySample-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "MQOverlaySample/MQOverlaySample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		0386BF5713F3B684006AF0CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MQOverlaySample.app/MQOverlaySample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MQOverlaySampleTests/MQOverlaySampleTests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "MQOverlaySampleTests/MQOverlaySampleTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		0386BF5813F3B684006AF0CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MQOverlaySample.app/MQOverlaySample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MQOverlaySampleTests/MQOverlaySampleTests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "MQOverlaySampleTests/MQOverlaySampleTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+		B1A14DE0161E3AD200EBA36C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../build\"",
+					"\"$(SRCROOT)/../..\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MQOverlaySample/MQOverlaySample-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "MQOverlaySampleSDKSource-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../MQMapKit.framework\"",
+				);
+				PRODUCT_NAME = MQOverlaySampleSDKSource;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B1A14DE1161E3AD200EBA36C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../build\"",
+					"\"$(SRCROOT)/../..\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MQOverlaySample/MQOverlaySample-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "MQOverlaySampleSDKSource-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../MQMapKit.framework\"",
+				);
+				PRODUCT_NAME = MQOverlaySampleSDKSource;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0386BF1613F3B684006AF0CA /* Build configuration list for PBXProject "MQOverlaySample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0386BF5113F3B684006AF0CA /* Debug */,
+				0386BF5213F3B684006AF0CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0386BF5313F3B684006AF0CA /* Build configuration list for PBXNativeTarget "MQOverlaySample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0386BF5413F3B684006AF0CA /* Debug */,
+				0386BF5513F3B684006AF0CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0386BF5613F3B684006AF0CA /* Build configuration list for PBXNativeTarget "MQOverlaySampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0386BF5713F3B684006AF0CA /* Debug */,
+				0386BF5813F3B684006AF0CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1A14DDF161E3AD200EBA36C /* Build configuration list for PBXNativeTarget "MQOverlaySampleSDKSource" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1A14DE0161E3AD200EBA36C /* Debug */,
+				B1A14DE1161E3AD200EBA36C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0386BF1313F3B684006AF0CA /* Project object */;
+}

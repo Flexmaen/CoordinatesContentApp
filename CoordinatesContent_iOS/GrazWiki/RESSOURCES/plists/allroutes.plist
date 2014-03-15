@@ -1,0 +1,9 @@
+<!DOCTYPE plist PUBLIC '-//Apple Computer//DTD PLIST 1.0//EN' 'http://www.apple.com/DTDs/PropertyList-1.0.dtd'>
+<plist version='1.0'><dict><key>0</key>
+<dict><key>id</key>
+<string>1</string>
+<key>title</key>
+<string>Test</string>
+<key>description</key>
+<string>Das ist eine allgemeine Beschreibung der Route. Da steht eine Tour-Beschreibung drinnen - als Beispiel-Bild kann man wohl das Haus einer der Adressen nehmen. </string>
+</dict></dict></plist>

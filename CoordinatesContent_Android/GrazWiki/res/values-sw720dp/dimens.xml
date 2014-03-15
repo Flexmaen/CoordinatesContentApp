@@ -1,0 +1,10 @@
+<resources>
+
+    <!--
+         Customize dimensions originally defined in res/values/dimens.xml (such as
+         screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
+
+    <dimen name="activity_horizontal_margin">100dp</dimen>      -->
+ 	<dimen name="tv_description">20sp</dimen>
+ 	 <dimen name="tv_header">26sp</dimen>
+</resources>

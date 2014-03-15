@@ -1,0 +1,125 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="100" >
+
+    <TextView
+        android:id="@+id/tv_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#0099cc"
+        android:text="   Bilder"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/tv_header" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="50"
+        android:orientation="vertical"
+        android:weightSum="100" >
+
+        <ImageButton
+            android:id="@+id/ib_ginger_building_image"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="80"
+            android:background="@null"
+            android:scaleType="fitCenter" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="20"
+            android:orientation="horizontal"
+            android:weightSum="100" >
+
+            <Button
+                android:id="@+id/btn_left"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="50"
+                android:onClick="leftClicked"
+                android:padding="6dp"
+                android:text="vorh. Bild" />
+
+            <Button
+                android:id="@+id/btn_right"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="50"
+                android:onClick="rightClicked"
+                android:paddingTop="6dp"
+                android:text="näch. Bild" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_header2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#0099cc"
+        android:text="   Beschreibung"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/tv_header" />
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="40"
+        android:padding="10dp"
+        android:scrollbars="vertical"
+        android:text="Lade Daten..."
+        android:textSize="@dimen/tv_description" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="10" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:weightSum="100" >
+
+            <ImageButton
+                android:id="@+id/ib_left_arrow"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_weight="10"
+                android:background="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_arrow_left" />
+
+            <TextView
+                android:id="@+id/tv_pages"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="80"
+                android:gravity="center"
+                android:maxLines="1"
+                android:padding="10dp"
+                android:scrollbars="none"
+                android:textSize="@dimen/tv_pages"
+                android:text="1/2" />
+
+            <ImageButton
+                android:id="@+id/ib_right_arrow"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_weight="10"
+                android:background="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_arrow_right" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

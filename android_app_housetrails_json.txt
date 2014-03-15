@@ -1,0 +1,99 @@
+==================================================================================================================
+Android json-Feed 
+==================================================================================================================
+This list describes examples for queries done by the app and expected output from server.
+Data can be other than buildings of course.
+==================================================================================================================
+
+
+==================================================================================================================
+List all Object/Liste aller Objekte:
+------------------------------------------------------------------------------------------------------------------
+server.url/jsonService.php?action=getAllBuildings 
+------------------------------------------------------------------------------------------------------------------
+output: 
+[{"id":-701379922, "title":"Am Damm 1" , "latitude":47.077038888889 , "longitude":15.428302777778},...] 
+==================================================================================================================
+
+
+==================================================================================================================
+Buildings with a region / Objekte innerhalb einer Region:
+(can display buildings on the displayed area) 
+------------------------------------------------------------------------------------------------------------------
+server.url/jsonService.php? action=getBuildingsOfRegion&min_lat=47.056265666667&max_lat=47.076268666667&min_lon g=15.453744444444&max_long=15.453944444444 
+------------------------------------------------------------------------------------------------------------------
+output: 
+[{"id":-2146834024, "title":"Strassoldogasse 4" , "latitude":47.076266666667 , 
+"longitude":15.453844444444},...] 
+
+Beispielcode (php) 
+function getBuildingsOfRegion(&$xmlString,$minlat,$maxlat,$minlong,$maxlong) 
+{ 
+$orig_minlat = $minlat; 
+$orig_minlong = $minlong; 
+$orig_maxlat = $maxlat; 
+$orig_maxlong = $maxlong; 
+$latgap = ($maxlat - $minlat)/4; 
+$longgap = ($maxlong - $minlong)/4; 
+$sql = "SELECT * FROM building Where building_latitude >= $minlat AND 
+building_latitude <= $maxlat AND building_longitude >= $minlong AND building_longitude <= $maxlong LIMIT 555"; $result = mysql_query($sql); $minlat += $latgap; $maxlat -= $latgap; $minlong += $longgap; $maxlong -= $longgap; $i=0; $xmlString .= "["; $range = $maxlong - $minlong; $range_filterlimit = 0.0035; while($row = mysql_fetch_array($result)) 
+{ 
+$xmlString .= "{\"id\":". 
+$row['building_id'].", \"title\":".json_encode($row['building_title'],JSON_HEX_TAG| 
+JSON_HEX_APOS|JSON_HEX_QUOT|JSON_HEX_AMP)." , \"latitude\":". 
+$row['building_latitude']." , \"longitude\":".$row['building_longitude']."},";
+  if(($i==100 && $range > $range_filterlimit) || $i > 270)
+      break;
+ $i++; } // end while $xmlString = trim($xmlString,","); $xmlString .= "]"; return $xmlString; } // end function 
+==================================================================================================================
+
+
+==================================================================================================================
+Information to a specific object / Information zu einem bestimmten Objekt
+(in this case containing three scrollpages, you might use it with only one section too)
+------------------------------------------------------------------------------------------------------------------
+server.url/jsonService.php?action=getBuildingInformation&bid=1583184515 
+------------------------------------------------------------------------------------------------------------------
+output: 
+[{"title":"Kunsthaus","text":"Neubau des Grazer Kunsthauses nach den Entw\u00fcrfen von Peter Cook und Colin Fournier, der die S\u00fcd- und Ostfassade des Eisernen Hauses integriert. Siehe [[http:\/\/de.wikipedia.org\/wiki\/Kunsthaus_Graz Wikipedia]].","images": [{"imageName":"communication/images/graz_kunsthaus_vom_schlossberg_20061126.jpg", "imageDescription":"Kunsthaus vom Schlossberg"}, {"imageName":"communication/images/kunsthaus_graz_nacht_medienfassade.jpg", "imageDescription":"Kunsthaus Medienfassade"}]},{"title":"Eisernes Haus","text":"Das \u0022Eiserne Haus\u0022 wurde 1847-1848 anstelle von f\u00fcnf B\u00fcrgerh\u00e4usern nach Pl\u00e4nen von Josef Benedikt Withalm errichtet. Das im Erdgeschoss auf Sandsteinpfeilern ruhende Obergeschoss ist in Skelettbauweise aus Gusseisen und Glas ausgef\u00fchrt. Jener f\u00fcr seine Zeit in Bezug auf Konstruktion, Material und Form innovative und revolution\u00e4re Bau stellt als einziges in der Steiermark erhaltenes Beispiel der Anwendung von Gusseisen im Hochbau ein technisches Denkmal dar. Trotz wesentlicher Umbauten im 19. und 20. Jh. ist zumindest das \u00e4u\u00dfere Erscheinungsbild der aus konstruktiven und ornamentalen Gusseisenelementen bestehenden Fassade erhalten geblieben. Genaueres in der [[http:\/\/de.wikipedia.org\/wiki\/Eisernes_Haus_(Graz) Wikipedia]]","images": [{"imageName":"communication/images/eisernes_haus.jpg", "imageDescription":"urspr\u00fcngliches Eisernes Haus"}, {"imageName":"communication/images/franz_karl_bruecke.jpg", "imageDescription":"Eisernes Haus nach Umbauten"}]}, {"title":"Info: ", "text":"8020 Graz\nSteiermark\n\u00d6sterreich\n47.071174084811, 15.434187054634 \n\nmehr unter http:\/\/baugeschichte.at","images": [{"imageName":"skins/common/images/logo_baugeschichte.png", "imageDescription":"\nwww.baugeschichte.at "}]}] 
+==================================================================================================================
+
+
+==================================================================================================================
+Infomation to a specific route / Informationen zu einer bestimmten Route
+(shows objects linked in this route and connecting routepoints)
+------------------------------------------------------------------------------------------------------------------
+server.url/jsonService.php?action=getRouteInformation&rid=-1031886265 
+------------------------------------------------------------------------------------------------------------------
+output: 
+{"routeAddress":[{"id":509669626, "title":"Fellingergasse 14" , "latitude":47.074897222222 , "longitude":15.431833333333},{"id":239312301, "title":"Lendplatz 21" , "latitude":47.076425 , "longitude":15.428738888889},{"id":-531759999, "title":"Lendplatz 23" , "latitude":47.076822222222 , "longitude":15.428377777778},{"id":-856748496, "title":"Sigmundstadl 1" , "latitude":47.074380555556 , "longitude":15.429208333333},{"id":­214785738, "title":"Kinkgasse 2" , "latitude":47.073855555556 , "longitude":15.430541666667}],"routeLine":[{"latitude":47.073792 , "longitude":15.430488}, {"latitude":47.073776 , "longitude":15.429513},{"latitude":47.074612 , "longitude":15.42927}, {"latitude":47.074558 , "longitude":15.429358},{"latitude":47.074356 , "longitude":15.42946}, {"latitude":47.074242 , "longitude":15.429739},{"latitude":47.074894 , "longitude":15.430457}, {"latitude":47.075108 , "longitude":15.430306},{"latitude":47.076889 , "longitude":15.428657}, {"latitude":47.076729 , "longitude":15.428764},{"latitude":47.076782 , "longitude":15.428892}, {"latitude":47.076405 , "longitude":15.429334},{"latitude":47.076164 , "longitude":15.429621}, {"latitude":47.075779 , "longitude":15.429902},{"latitude":47.075066 , "longitude":15.43064}, {"latitude":47.075176 , "longitude":15.430895},{"latitude":47.075233 , "longitude":15.431192}, {"latitude":47.074764 , "longitude":15.431736},{"latitude":47.074852 , "longitude":15.431887}]} 
+==================================================================================================================
+
+
+==================================================================================================================
+List all routes / Liste aller Routen
+------------------------------------------------------------------------------------------------------------------
+server.url/jsonService.php?action=getAllRoutes
+------------------------------------------------------------------------------------------------------------------
+output: [{"id":-1031886265, "title":"Lend-Zustand 2011 klein (Graz)" , "description":"Die kleinere Runde des Lend-Zustand Rundgangs, anl\u00c3\u00a4sslich des Lendwirbels 2011."}] 
+==================================================================================================================
+
+
+==================================================================================================================
+List all categories / Liste aller Kategorien
+------------------------------------------------------------------------------------------------------------------
+server.url/jsonService.php?action=getAllCategories 
+------------------------------------------------------------------------------------------------------------------
+output: 
+[{"category":"Ab 2000 abgerissene Geb\u00e4ude"},{"category":"Ab 2000 restauriert"}, {"category":"Aktuell"},{"category":"Bis 2000 abgerissene Geb\u00e4ude"}, {"category":"Denkmalschutz"},{"category":"Gedenkst\u00e4tten"},{"category":"Geschichte"}, {"category":"Historische Ansicht vorhanden"},{"category":"Leerstand"},{"category":"Stadttore"}, {"category":"Gef\u00e4hrdet"}] 
+==================================================================================================================
+
+
+==================================================================================================================
+Objects of selected category / Objekte zu einer Kategorie
+------------------------------------------------------------------------------------------------------------------
+server.url/jsonService.php?action=getBuildingsOfCategory&category=denkmalschutz 
+------------------------------------------------------------------------------------------------------------------
+output: 
+[{"id":2118739146, "title":"Babenbergerstra\u00dfe 107","latitude":47.079986111111 , "longitude":15.417497222222},{"id":-176756312, "title":"Grenadiergasse 14 (Graz)","latitude":47.0686639 , "longitude":15.4304223},{"id":1181264502, "title":"Kadettengasse 19","latitude":47.037308630673 , "longitude":15.457195043564},{"id":-1919938389, "title":"Kadettengasse 23","latitude":47.036744444444 , "longitude":15.456908333333}, {"id":1953237, "title":"Leonhardstra\u00dfe 19","latitude":47.072288888889 , "longitude":15.450541666667},{"id":549292334, "title":"Museumsplatz 1 (Wien)","latitude":48.2034986 , "longitude":16.3591175},{"id":1706422798, "title":"Neustiftgasse 7 (Wien)","latitude":48.2053442 , "longitude":16.3553175},{"id":-2087670110, "title":"Ruinenweg 50","latitude":47.103640736277 , "longitude":15.381608245457},{"id":-1666936322, "title":"Schubertstra\u00dfe 68","latitude":47.082477553356 , "longitude":15.458824175997}, {"id":904950745, "title":"Sigmundsgasse 5 (Wien)","latitude":48.20294 , "longitude":16.35333}, {"id":1690881465, "title":"Wiener Stra\u00dfe 372","latitude":47.105616848146 , "longitude":15.400632619858}]
+==================================================================================================================

@@ -1,0 +1,575 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		098964D113D5F93200D52647 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 098964D013D5F93200D52647 /* UIKit.framework */; };
+		098964D313D5F93200D52647 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 098964D213D5F93200D52647 /* Foundation.framework */; };
+		098964D513D5F93200D52647 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 098964D413D5F93200D52647 /* CoreGraphics.framework */; };
+		098964DB13D5F93200D52647 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 098964D913D5F93200D52647 /* InfoPlist.strings */; };
+		098964DD13D5F93200D52647 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 098964DC13D5F93200D52647 /* main.m */; };
+		098964E113D5F93200D52647 /* MQUserLocationSampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 098964E013D5F93200D52647 /* MQUserLocationSampleAppDelegate.m */; };
+		098964E413D5F93200D52647 /* MQUserLocationSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 098964E313D5F93200D52647 /* MQUserLocationSampleViewController.m */; };
+		098964E713D5F93200D52647 /* MQUserLocationSampleViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 098964E513D5F93200D52647 /* MQUserLocationSampleViewController_iPhone.xib */; };
+		098964EA13D5F93200D52647 /* MQUserLocationSampleViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 098964E813D5F93200D52647 /* MQUserLocationSampleViewController_iPad.xib */; };
+		098964FB13D5F97200D52647 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 098964FA13D5F97200D52647 /* libsqlite3.dylib */; };
+		0989652F13D605CF00D52647 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0989652E13D605CF00D52647 /* QuartzCore.framework */; };
+		0989653113D605E600D52647 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0989653013D605E600D52647 /* CoreLocation.framework */; };
+		0994261A1431021F009FEFBD /* MQMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 099426191431021F009FEFBD /* MQMapKit.framework */; };
+		1885146714298F02005D74DB /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1885146614298F02005D74DB /* AddressBook.framework */; };
+		B1E0FB14161DFBE000F4CDB7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 098964DC13D5F93200D52647 /* main.m */; };
+		B1E0FB15161DFBE000F4CDB7 /* MQUserLocationSampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 098964E013D5F93200D52647 /* MQUserLocationSampleAppDelegate.m */; };
+		B1E0FB16161DFBE000F4CDB7 /* MQUserLocationSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 098964E313D5F93200D52647 /* MQUserLocationSampleViewController.m */; };
+		B1E0FB19161DFBE000F4CDB7 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1885146614298F02005D74DB /* AddressBook.framework */; };
+		B1E0FB1A161DFBE000F4CDB7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0989653013D605E600D52647 /* CoreLocation.framework */; };
+		B1E0FB1B161DFBE000F4CDB7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0989652E13D605CF00D52647 /* QuartzCore.framework */; };
+		B1E0FB1C161DFBE000F4CDB7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 098964FA13D5F97200D52647 /* libsqlite3.dylib */; };
+		B1E0FB1D161DFBE000F4CDB7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 098964D013D5F93200D52647 /* UIKit.framework */; };
+		B1E0FB1E161DFBE000F4CDB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 098964D213D5F93200D52647 /* Foundation.framework */; };
+		B1E0FB1F161DFBE000F4CDB7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 098964D413D5F93200D52647 /* CoreGraphics.framework */; };
+		B1E0FB21161DFBE000F4CDB7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 098964D913D5F93200D52647 /* InfoPlist.strings */; };
+		B1E0FB22161DFBE000F4CDB7 /* MQUserLocationSampleViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 098964E513D5F93200D52647 /* MQUserLocationSampleViewController_iPhone.xib */; };
+		B1E0FB23161DFBE000F4CDB7 /* MQUserLocationSampleViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 098964E813D5F93200D52647 /* MQUserLocationSampleViewController_iPad.xib */; };
+		B1E0FB64161DFFD000F4CDB7 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E0FB63161DFFD000F4CDB7 /* libxml2.dylib */; };
+		B1E0FB65161DFFD000F4CDB7 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E0FB63161DFFD000F4CDB7 /* libxml2.dylib */; };
+		B1E0FB69161E019100F4CDB7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E0FB68161E019100F4CDB7 /* SystemConfiguration.framework */; };
+		B1E0FB6A161E019100F4CDB7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E0FB68161E019100F4CDB7 /* SystemConfiguration.framework */; };
+		B1E0FB9D161E0D3C00F4CDB7 /* libmq_ios_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E0FB90161E0B9E00F4CDB7 /* libmq_ios_sdk.a */; };
+		B1E0FB9F161E0DDA00F4CDB7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E0FB9E161E0DDA00F4CDB7 /* Default-568h@2x.png */; };
+		B1E0FBA1161E0E6000F4CDB7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E0FBA0161E0E6000F4CDB7 /* Default@2x.png */; };
+		B1E0FBA3161E0E8900F4CDB7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E0FBA2161E0E8900F4CDB7 /* Default.png */; };
+		B1E0FBA4161E179500F4CDB7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E0FB9E161E0DDA00F4CDB7 /* Default-568h@2x.png */; };
+		B1E0FBA5161E179900F4CDB7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E0FBA2161E0E8900F4CDB7 /* Default.png */; };
+		B1E0FBA6161E179C00F4CDB7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E0FBA0161E0E6000F4CDB7 /* Default@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B1E0FB8F161E0B9E00F4CDB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1E0FB02161DFBD200F4CDB7 /* mq_ios_sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = mq_ios_sdk;
+		};
+		B1E0FB91161E0B9E00F4CDB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1E0FB02161DFBD200F4CDB7 /* mq_ios_sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 09A55A2313E32D9D00AC4433;
+			remoteInfo = SDKUnitTests;
+		};
+		B1E0FB93161E0B9E00F4CDB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1E0FB02161DFBD200F4CDB7 /* mq_ios_sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D7A3C213159B746A00BB623E;
+			remoteInfo = mq_ios_sdk_private;
+		};
+		B1E0FB95161E0C0200F4CDB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1E0FB02161DFBD200F4CDB7 /* mq_ios_sdk.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = mq_ios_sdk;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		098964CC13D5F93200D52647 /* MQUserLocationSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MQUserLocationSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		098964D013D5F93200D52647 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		098964D213D5F93200D52647 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		098964D413D5F93200D52647 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		098964D813D5F93200D52647 /* MQUserLocationSample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MQUserLocationSample-Info.plist"; sourceTree = "<group>"; };
+		098964DA13D5F93200D52647 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		098964DC13D5F93200D52647 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		098964DE13D5F93200D52647 /* MQUserLocationSample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MQUserLocationSample-Prefix.pch"; sourceTree = "<group>"; };
+		098964DF13D5F93200D52647 /* MQUserLocationSampleAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MQUserLocationSampleAppDelegate.h; sourceTree = "<group>"; };
+		098964E013D5F93200D52647 /* MQUserLocationSampleAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MQUserLocationSampleAppDelegate.m; sourceTree = "<group>"; };
+		098964E213D5F93200D52647 /* MQUserLocationSampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MQUserLocationSampleViewController.h; sourceTree = "<group>"; };
+		098964E313D5F93200D52647 /* MQUserLocationSampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MQUserLocationSampleViewController.m; sourceTree = "<group>"; };
+		098964E613D5F93200D52647 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MQUserLocationSampleViewController_iPhone.xib; sourceTree = "<group>"; };
+		098964E913D5F93200D52647 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MQUserLocationSampleViewController_iPad.xib; sourceTree = "<group>"; };
+		098964FA13D5F97200D52647 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		0989652E13D605CF00D52647 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0989653013D605E600D52647 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		099426191431021F009FEFBD /* MQMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MQMapKit.framework; path = ../../MQMapKit.framework; sourceTree = "<group>"; };
+		1885146614298F02005D74DB /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		B1E0FB02161DFBD200F4CDB7 /* mq_ios_sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = mq_ios_sdk.xcodeproj; path = ../../mq_ios_sdk.xcodeproj; sourceTree = "<group>"; };
+		B1E0FB27161DFBE000F4CDB7 /* MQUserLocationSampleSDKSource.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MQUserLocationSampleSDKSource.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1E0FB29161DFBE100F4CDB7 /* MQUserLocationSampleSDKSource-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MQUserLocationSampleSDKSource-Info.plist"; path = "/Users/heinrich953/projects/mapquest-mobile-ios-sdk/Samples/MQUserLocationSample/MQUserLocationSample/MQUserLocationSampleSDKSource-Info.plist"; sourceTree = "<absolute>"; };
+		B1E0FB63161DFFD000F4CDB7 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		B1E0FB68161E019100F4CDB7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B1E0FB9E161E0DDA00F4CDB7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		B1E0FBA0161E0E6000F4CDB7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
+		B1E0FBA2161E0E8900F4CDB7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		098964C913D5F93200D52647 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0994261A1431021F009FEFBD /* MQMapKit.framework in Frameworks */,
+				1885146714298F02005D74DB /* AddressBook.framework in Frameworks */,
+				0989653113D605E600D52647 /* CoreLocation.framework in Frameworks */,
+				0989652F13D605CF00D52647 /* QuartzCore.framework in Frameworks */,
+				098964FB13D5F97200D52647 /* libsqlite3.dylib in Frameworks */,
+				098964D113D5F93200D52647 /* UIKit.framework in Frameworks */,
+				098964D313D5F93200D52647 /* Foundation.framework in Frameworks */,
+				098964D513D5F93200D52647 /* CoreGraphics.framework in Frameworks */,
+				B1E0FB64161DFFD000F4CDB7 /* libxml2.dylib in Frameworks */,
+				B1E0FB69161E019100F4CDB7 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1E0FB17161DFBE000F4CDB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1E0FB19161DFBE000F4CDB7 /* AddressBook.framework in Frameworks */,
+				B1E0FB1A161DFBE000F4CDB7 /* CoreLocation.framework in Frameworks */,
+				B1E0FB1B161DFBE000F4CDB7 /* QuartzCore.framework in Frameworks */,
+				B1E0FB1C161DFBE000F4CDB7 /* libsqlite3.dylib in Frameworks */,
+				B1E0FB1D161DFBE000F4CDB7 /* UIKit.framework in Frameworks */,
+				B1E0FB1E161DFBE000F4CDB7 /* Foundation.framework in Frameworks */,
+				B1E0FB1F161DFBE000F4CDB7 /* CoreGraphics.framework in Frameworks */,
+				B1E0FB65161DFFD000F4CDB7 /* libxml2.dylib in Frameworks */,
+				B1E0FB6A161E019100F4CDB7 /* SystemConfiguration.framework in Frameworks */,
+				B1E0FB9D161E0D3C00F4CDB7 /* libmq_ios_sdk.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		098964C113D5F93200D52647 = {
+			isa = PBXGroup;
+			children = (
+				098964D613D5F93200D52647 /* MQUserLocationSample */,
+				098964CF13D5F93200D52647 /* Frameworks */,
+				098964CD13D5F93200D52647 /* Products */,
+				B1E0FB02161DFBD200F4CDB7 /* mq_ios_sdk.xcodeproj */,
+			);
+			sourceTree = "<group>";
+		};
+		098964CD13D5F93200D52647 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				098964CC13D5F93200D52647 /* MQUserLocationSample.app */,
+				B1E0FB27161DFBE000F4CDB7 /* MQUserLocationSampleSDKSource.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		098964CF13D5F93200D52647 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B1E0FB66161DFFD500F4CDB7 /* MQMapKit required */,
+				099426191431021F009FEFBD /* MQMapKit.framework */,
+				0989653013D605E600D52647 /* CoreLocation.framework */,
+				0989652E13D605CF00D52647 /* QuartzCore.framework */,
+				098964FA13D5F97200D52647 /* libsqlite3.dylib */,
+				098964D013D5F93200D52647 /* UIKit.framework */,
+				098964D213D5F93200D52647 /* Foundation.framework */,
+				098964D413D5F93200D52647 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		098964D613D5F93200D52647 /* MQUserLocationSample */ = {
+			isa = PBXGroup;
+			children = (
+				098964DF13D5F93200D52647 /* MQUserLocationSampleAppDelegate.h */,
+				098964E013D5F93200D52647 /* MQUserLocationSampleAppDelegate.m */,
+				098964E213D5F93200D52647 /* MQUserLocationSampleViewController.h */,
+				098964E313D5F93200D52647 /* MQUserLocationSampleViewController.m */,
+				098964D713D5F93200D52647 /* Supporting Files */,
+				18F3EEC31444054000F37D07 /* Nibs */,
+			);
+			path = MQUserLocationSample;
+			sourceTree = "<group>";
+		};
+		098964D713D5F93200D52647 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B1E0FBA2161E0E8900F4CDB7 /* Default.png */,
+				B1E0FBA0161E0E6000F4CDB7 /* Default@2x.png */,
+				B1E0FB9E161E0DDA00F4CDB7 /* Default-568h@2x.png */,
+				B1E0FB29161DFBE100F4CDB7 /* MQUserLocationSampleSDKSource-Info.plist */,
+				098964D813D5F93200D52647 /* MQUserLocationSample-Info.plist */,
+				098964D913D5F93200D52647 /* InfoPlist.strings */,
+				098964DC13D5F93200D52647 /* main.m */,
+				098964DE13D5F93200D52647 /* MQUserLocationSample-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		18F3EEC31444054000F37D07 /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				098964E513D5F93200D52647 /* MQUserLocationSampleViewController_iPhone.xib */,
+				098964E813D5F93200D52647 /* MQUserLocationSampleViewController_iPad.xib */,
+			);
+			name = Nibs;
+			sourceTree = "<group>";
+		};
+		B1E0FB66161DFFD500F4CDB7 /* MQMapKit required */ = {
+			isa = PBXGroup;
+			children = (
+				B1E0FB63161DFFD000F4CDB7 /* libxml2.dylib */,
+				B1E0FB68161E019100F4CDB7 /* SystemConfiguration.framework */,
+				1885146614298F02005D74DB /* AddressBook.framework */,
+			);
+			name = "MQMapKit required";
+			sourceTree = "<group>";
+		};
+		B1E0FB8A161E0B9E00F4CDB7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B1E0FB90161E0B9E00F4CDB7 /* libmq_ios_sdk.a */,
+				B1E0FB92161E0B9E00F4CDB7 /* SDKUnitTests.octest */,
+				B1E0FB94161E0B9E00F4CDB7 /* libmq_ios_sdk_private.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		098964CB13D5F93200D52647 /* MQUserLocationSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 098964ED13D5F93200D52647 /* Build configuration list for PBXNativeTarget "MQUserLocationSample" */;
+			buildPhases = (
+				098964C813D5F93200D52647 /* Sources */,
+				098964C913D5F93200D52647 /* Frameworks */,
+				098964CA13D5F93200D52647 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MQUserLocationSample;
+			productName = MQUserLocationSample;
+			productReference = 098964CC13D5F93200D52647 /* MQUserLocationSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B1E0FB12161DFBE000F4CDB7 /* MQUserLocationSampleSDKSource */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1E0FB24161DFBE000F4CDB7 /* Build configuration list for PBXNativeTarget "MQUserLocationSampleSDKSource" */;
+			buildPhases = (
+				B1E0FB13161DFBE000F4CDB7 /* Sources */,
+				B1E0FB17161DFBE000F4CDB7 /* Frameworks */,
+				B1E0FB20161DFBE000F4CDB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B1E0FB96161E0C0200F4CDB7 /* PBXTargetDependency */,
+			);
+			name = MQUserLocationSampleSDKSource;
+			productName = MQUserLocationSample;
+			productReference = B1E0FB27161DFBE000F4CDB7 /* MQUserLocationSampleSDKSource.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		098964C313D5F93200D52647 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = MapQuest;
+			};
+			buildConfigurationList = 098964C613D5F93200D52647 /* Build configuration list for PBXProject "MQUserLocationSample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 098964C113D5F93200D52647;
+			productRefGroup = 098964CD13D5F93200D52647 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B1E0FB8A161E0B9E00F4CDB7 /* Products */;
+					ProjectRef = B1E0FB02161DFBD200F4CDB7 /* mq_ios_sdk.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				098964CB13D5F93200D52647 /* MQUserLocationSample */,
+				B1E0FB12161DFBE000F4CDB7 /* MQUserLocationSampleSDKSource */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B1E0FB90161E0B9E00F4CDB7 /* libmq_ios_sdk.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libmq_ios_sdk.a;
+			remoteRef = B1E0FB8F161E0B9E00F4CDB7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B1E0FB92161E0B9E00F4CDB7 /* SDKUnitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SDKUnitTests.octest;
+			remoteRef = B1E0FB91161E0B9E00F4CDB7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B1E0FB94161E0B9E00F4CDB7 /* libmq_ios_sdk_private.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libmq_ios_sdk_private.a;
+			remoteRef = B1E0FB93161E0B9E00F4CDB7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		098964CA13D5F93200D52647 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				098964DB13D5F93200D52647 /* InfoPlist.strings in Resources */,
+				098964E713D5F93200D52647 /* MQUserLocationSampleViewController_iPhone.xib in Resources */,
+				098964EA13D5F93200D52647 /* MQUserLocationSampleViewController_iPad.xib in Resources */,
+				B1E0FBA4161E179500F4CDB7 /* Default-568h@2x.png in Resources */,
+				B1E0FBA5161E179900F4CDB7 /* Default.png in Resources */,
+				B1E0FBA6161E179C00F4CDB7 /* Default@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1E0FB20161DFBE000F4CDB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1E0FB21161DFBE000F4CDB7 /* InfoPlist.strings in Resources */,
+				B1E0FB22161DFBE000F4CDB7 /* MQUserLocationSampleViewController_iPhone.xib in Resources */,
+				B1E0FB23161DFBE000F4CDB7 /* MQUserLocationSampleViewController_iPad.xib in Resources */,
+				B1E0FB9F161E0DDA00F4CDB7 /* Default-568h@2x.png in Resources */,
+				B1E0FBA1161E0E6000F4CDB7 /* Default@2x.png in Resources */,
+				B1E0FBA3161E0E8900F4CDB7 /* Default.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		098964C813D5F93200D52647 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				098964DD13D5F93200D52647 /* main.m in Sources */,
+				098964E113D5F93200D52647 /* MQUserLocationSampleAppDelegate.m in Sources */,
+				098964E413D5F93200D52647 /* MQUserLocationSampleViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1E0FB13161DFBE000F4CDB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1E0FB14161DFBE000F4CDB7 /* main.m in Sources */,
+				B1E0FB15161DFBE000F4CDB7 /* MQUserLocationSampleAppDelegate.m in Sources */,
+				B1E0FB16161DFBE000F4CDB7 /* MQUserLocationSampleViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B1E0FB96161E0C0200F4CDB7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = mq_ios_sdk;
+			targetProxy = B1E0FB95161E0C0200F4CDB7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		098964D913D5F93200D52647 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				098964DA13D5F93200D52647 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		098964E513D5F93200D52647 /* MQUserLocationSampleViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				098964E613D5F93200D52647 /* en */,
+			);
+			name = MQUserLocationSampleViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		098964E813D5F93200D52647 /* MQUserLocationSampleViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				098964E913D5F93200D52647 /* en */,
+			);
+			name = MQUserLocationSampleViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		098964EB13D5F93200D52647 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		098964EC13D5F93200D52647 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		098964EE13D5F93200D52647 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../..\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MQUserLocationSample/MQUserLocationSample-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/MQUserLocationSample/MQUserLocationSample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "../../**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		098964EF13D5F93200D52647 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../..\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MQUserLocationSample/MQUserLocationSample-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/MQUserLocationSample/MQUserLocationSample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "../../**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B1E0FB25161DFBE000F4CDB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../..\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MQUserLocationSample/MQUserLocationSample-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/MQUserLocationSample/MQUserLocationSampleSDKSource-Info.plist";
+				PRODUCT_NAME = MQUserLocationSampleSDKSource;
+				USER_HEADER_SEARCH_PATHS = "../../**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B1E0FB26161DFBE000F4CDB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../..\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MQUserLocationSample/MQUserLocationSample-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/MQUserLocationSample/MQUserLocationSampleSDKSource-Info.plist";
+				PRODUCT_NAME = MQUserLocationSampleSDKSource;
+				USER_HEADER_SEARCH_PATHS = "../../**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		098964C613D5F93200D52647 /* Build configuration list for PBXProject "MQUserLocationSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				098964EB13D5F93200D52647 /* Debug */,
+				098964EC13D5F93200D52647 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		098964ED13D5F93200D52647 /* Build configuration list for PBXNativeTarget "MQUserLocationSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				098964EE13D5F93200D52647 /* Debug */,
+				098964EF13D5F93200D52647 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1E0FB24161DFBE000F4CDB7 /* Build configuration list for PBXNativeTarget "MQUserLocationSampleSDKSource" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1E0FB25161DFBE000F4CDB7 /* Debug */,
+				B1E0FB26161DFBE000F4CDB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 098964C313D5F93200D52647 /* Project object */;
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">GrazWiki</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world! Du Hurensau</string>
+<<<<<<< .mine
+    <string name="locate">Lokalisieren</string>
+    <string name="search">Suche..</string>
+=======
+    <string name="locate">Locate</string>
+>>>>>>> .r25
+    <string name="title_activity_search_buildings">SearchBuildings</string>
+    <string name="title_activity_detail_building">DetailBuilding</string>
+    <string name="title_activity_detail_building_container">DetailBuildingContainer</string>
+
+</resources>
